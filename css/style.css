@@ -263,7 +263,7 @@ nav a:hover { color: white; }
 }
 
 .panel-rectangle{
-  width: 74%;
+  width: 50%;
   margin: 0 auto;
   border-radius: 24px;
   overflow: hidden;
@@ -276,7 +276,7 @@ nav a:hover { color: white; }
 }
 
 .panel-video-rectangle{
-  width: 100%;
+  width: 50%;
   height: 360px;
   overflow: hidden;
   position: relative;
