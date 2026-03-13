@@ -40,7 +40,6 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: -2;
 }
 
 body::before {
@@ -48,12 +47,13 @@ body::before {
   background-size: 42px 42px;
   opacity: 0.13;
   mask-image: radial-gradient(circle at center, black 48%, transparent 95%);
+  z-index: -3;
 }
 
 body::after {
   background: radial-gradient(circle at center, rgba(63,216,255,0.08), transparent 48%);
   filter: blur(24px);
-  z-index: -3;
+  z-index: -4;
 }
 
 .container {
@@ -62,20 +62,16 @@ body::after {
 }
 
 /* =========================
-NETWORK BACKGROUND
+NETWORK CANVAS
 ========================= */
 
-#network-bg {
+#networkCanvas {
   position: fixed;
   inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-#network-bg canvas {
   width: 100%;
   height: 100%;
+  z-index: 0;
+  pointer-events: none;
   display: block;
 }
 
@@ -179,54 +175,6 @@ HEADER / FOOTER
 
 .footer {
   padding: 28px 0 46px;
-  position: relative;
-  z-index: 2;
-}
-
-.footer-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 26px;
-  padding: 24px 26px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
-
-.footer-card p {
-  margin: 0;
-  color: #b8c9df;
-  line-height: 1.7;
-}
-
-.mini-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.mini-links a {
-  color: #dfe9f9;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.25s ease;
-}
-
-.mini-links a:hover {
-  color: #ffffff;
-  border-color: rgba(53, 199, 255, 0.35);
-  box-shadow: 0 0 20px rgba(53, 199, 255, 0.14);
 }
 
 /* =========================
@@ -248,6 +196,13 @@ HERO
   display: none !important;
   content: none !important;
   background: none !important;
+}
+
+.site-header,
+main,
+.footer {
+  position: relative;
+  z-index: 2;
 }
 
 .hero .container,
@@ -378,11 +333,8 @@ HERO
   line-height: 1.5;
 }
 
-/* Old side panel hidden if removed from HTML */
-.premium-panel {
-  display: none !important;
-}
-
+/* old removed side panel support */
+.premium-panel,
 .premium-panel::before,
 .mini-orb,
 .stat-chip,
