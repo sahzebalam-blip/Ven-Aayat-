@@ -1,0 +1,72 @@
+.grid-overlay {
+  animation: gridMove 18s linear infinite;
+}
+
+.glow {
+  animation: floatGlow 16s ease-in-out infinite;
+}
+
+.g2 {
+  animation-delay: -5s;
+}
+
+.g3 {
+  animation-delay: -9s;
+}
+
+.dot {
+  animation: pulse 2s ease infinite;
+}
+
+.bars i {
+  animation: barFloat 3.2s ease-in-out infinite;
+}
+
+.bars i:nth-child(2){animation-delay:-.3s}
+.bars i:nth-child(3){animation-delay:-.8s}
+.bars i:nth-child(4){animation-delay:-1.2s}
+.bars i:nth-child(5){animation-delay:-1.6s}
+.bars i:nth-child(6){animation-delay:-2.1s}
+
+.flow-line {
+  animation: lineFlow 5s linear infinite;
+}
+
+.connector:after {
+  animation: connectorMove 2.6s linear infinite;
+}
+
+.reveal {
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+@keyframes pulse {
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.28)}
+}
+
+@keyframes barFloat {
+  0%,100%{transform:scaleY(.96)}
+  50%{transform:scaleY(1.05)}
+}
+
+@keyframes lineFlow {
+  0%{transform:translateX(-30%)}
+  100%{transform:translateX(30%)}
+}
+
+@keyframes connectorMove {
+  0%{transform:translate(-50%,0);opacity:0}
+  20%{opacity:1}
+  100%{transform:translate(-50%,52px);opacity:0}
+}
+
+@keyframes floatGlow {
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(20px,-24px,0) scale(1.05)}
+}
+
+@keyframes gridMove {
+  0%{transform:translateY(0)}
+  100%{transform:translateY(44px)}
+}

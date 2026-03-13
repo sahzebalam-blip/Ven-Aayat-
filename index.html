@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ven Aayat Tech Solutions | Web3 • Fintech • Infrastructure</title>
+  <meta
+    name="description"
+    content="Ven Aayat Tech Solutions builds premium Web3 infrastructure, blockchain platforms, token ecosystems, exchange interfaces and fintech technology systems."
+  />
+
+  <link rel="icon" type="image/png" href="assets/logos/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <canvas id="networkCanvas"></canvas>
+  <canvas id="particleCanvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
+
+  <div class="glow-wrap" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+  </div>
+
+  <div class="site">
+    <header>
+      <div class="container nav">
+        <a href="#home" class="brand" aria-label="Ven Aayat Tech Solutions home">
+          <img src="assets/logos/ven-aayat-tech-logo.png" class="logo" alt="Ven Aayat Tech Logo" />
+          <div class="brand-text">
+            <strong>Ven Aayat Tech Solutions</strong>
+            <span>Web3 • Fintech • Infrastructure</span>
+          </div>
+        </a>
+
+        <nav aria-label="primary navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#ecosystem">Ecosystem</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn" href="#technology">Explore Stack</a>
+          <a class="btn btn-primary" href="#contact">Build With Us</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-video-strip reveal">
+        <div class="container">
+          <div class="panel-rectangle">
+            <div class="panel-video-rectangle">
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                disablepictureinpicture
+                controlslist="nodownload noplaybackrate noremoteplayback nofullscreen"
+              >
+                <source src="assets/videos/intro.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">
+              <span class="dot"></span>
+              Live Digital Infrastructure • Premium Web3 Systems
+            </div>
+
+            <h1>Engineering the <span class="grad">next layer</span> of digital finance.</h1>
+
+            <p>
+              Ven Aayat Tech Solutions develops premium Web3 infrastructure, token ecosystems,
+              exchange interfaces, blockchain products and fintech technology platforms designed
+              with strong architecture, modern execution and enterprise-grade presentation.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#ecosystem" class="btn btn-primary">View Ecosystem</a>
+              <a href="#about" class="btn">See Company Story</a>
+            </div>
+
+            <div class="metrics">
+              <article class="metric">
+                <h3>Web3 Infrastructure</h3>
+                <p>Blockchain systems, token layers, platform architecture and connected digital ecosystems.</p>
+              </article>
+
+              <article class="metric">
+                <h3>Premium Experience</h3>
+                <p>Glass interface design, layered visuals and refined motion built for high-trust presentation.</p>
+              </article>
+
+              <article class="metric">
+                <h3>Fintech Positioning</h3>
+                <p>Serious company-grade structure shaped for digital finance, infrastructure and innovation brands.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="panel">
+              <div class="panel-head">
+                <span>System Overview</span>
+                <div class="live"><span class="dot"></span> Live Network State</div>
+              </div>
+
+              <div class="panel-body">
+                <div class="overview">
+                  <div class="panel-box">
+                    <div class="title-row">
+                      <h3>Infrastructure Activity</h3>
+                      <span class="badge">Real-Time</span>
+                    </div>
+
+                    <div class="bars" aria-hidden="true">
+                      <i style="height:32%"></i>
+                      <i style="height:54%"></i>
+                      <i style="height:44%"></i>
+                      <i style="height:74%"></i>
+                      <i style="height:60%"></i>
+                      <i style="height:82%"></i>
+                    </div>
+                  </div>
+
+                  <div class="stack">
+                    <div class="panel-box">
+                      <small>Core Layer</small>
+                      <strong>Blockchain Systems</strong>
+                    </div>
+                    <div class="panel-box">
+                      <small>Digital Layer</small>
+                      <strong>Exchange + Token + Academy</strong>
+                    </div>
+                    <div class="panel-box">
+                      <small>Experience Layer</small>
+                      <strong>Glass Interface Architecture</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-box">
+                  <div class="title-row">
+                    <h3>Operating Structure</h3>
+                    <span class="badge">Connected</span>
+                  </div>
+
+                  <div class="panel-list">
+                    <span>Dark navy system canvas with electric blue motion depth</span>
+                    <span>Live node network and flowing section connectors</span>
+                    <span>Premium Web3 company interface with a clean fintech presentation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="label"><span class="dot"></span> About The Firm</div>
+              <h2>Technology-led digital systems built for the next financial era.</h2>
+            </div>
+
+            <p>
+              Ven Aayat Tech Solutions operates at the intersection of blockchain technology,
+              fintech innovation and platform engineering. The company focuses on building
+              structured digital ecosystems that combine technology depth, scalable architecture
+              and premium presentation.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="section-card reveal">
+              <div class="icon">01</div>
+              <h3>Strategic Technology Positioning</h3>
+              <p>We develop digital products that reflect the standards of a modern Web3 and fintech firm, not a conventional brochure-style web presence.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">02</div>
+              <h3>Infrastructure-First Thinking</h3>
+              <p>Every layer is designed as part of a connected operating system, from platform interface and product flow to ecosystem presentation.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">03</div>
+              <h3>Professional Digital Identity</h3>
+              <p>Our approach combines visual precision, system clarity and future-ready architecture to build trust across digital finance audiences.</p>
+            </article>
+          </div>
+
+          <div class="band reveal">
+            <div class="flow-line"></div>
+
+            <div class="band-grid">
+              <div class="band-tile">
+                <small>Core Direction</small>
+                <strong>Web3 and fintech infrastructure</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Design Language</small>
+                <strong>Dark digital systems with controlled glow</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Product Logic</small>
+                <strong>Connected architecture across all sections</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Brand Feel</small>
+                <strong>Premium, technical and credible</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+      </section>
+
+      <section id="ecosystem">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="label"><span class="dot"></span> Ecosystem</div>
+              <h2>A unified ecosystem across infrastructure, assets and digital participation.</h2>
+            </div>
+
+            <p>
+              The Ven Aayat ecosystem is structured as an interconnected digital framework where
+              blockchain products, participation models, knowledge platforms and trading interfaces
+              function as one larger technology environment.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="section-card reveal">
+              <div class="icon">⚙</div>
+              <h3>Blockchain Development</h3>
+              <p>Custom blockchain solutions, smart contract structures and infrastructure-ready product frameworks for modern digital ventures.</p>
+              <div class="list">
+                <span>Technical system architecture</span>
+                <span>Product-focused development logic</span>
+              </div>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">◈</div>
+              <h3>Token Ecosystems</h3>
+              <p>Utility-focused token frameworks, ecosystem positioning and participation models designed for scalable digital economies.</p>
+              <div class="list">
+                <span>Utility and ecosystem alignment</span>
+                <span>Structured token presentation</span>
+              </div>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">▣</div>
+              <h3>Exchange Interfaces</h3>
+              <p>Digital asset platform interfaces with strong trust signals, modern market design language and clean execution flows.</p>
+              <div class="list">
+                <span>Fintech-grade product styling</span>
+                <span>High-clarity interface experience</span>
+              </div>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">⌘</div>
+              <h3>Web3 Platforms</h3>
+              <p>Secure and scalable Web3 platform experiences built for user interaction, ecosystem engagement and digital expansion.</p>
+              <div class="list">
+                <span>Modern decentralized interaction</span>
+                <span>Future-ready product direction</span>
+              </div>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">⬢</div>
+              <h3>Academy &amp; Knowledge Systems</h3>
+              <p>Structured education environments that support understanding of markets, blockchain technology and digital opportunity models.</p>
+              <div class="list">
+                <span>Learning architecture</span>
+                <span>Knowledge-driven ecosystem support</span>
+              </div>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">↗</div>
+              <h3>Digital Growth Infrastructure</h3>
+              <p>Platform layers built to support expansion, onboarding, ecosystem visibility and professional market-facing presentation.</p>
+              <div class="list">
+                <span>Growth-ready digital framework</span>
+                <span>Scalable company presentation</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+      </section>
+
+      <section id="technology">
+        <div class="container grid-2">
+          <div>
+            <div class="section-head reveal">
+              <div>
+                <div class="label"><span class="dot"></span> Technology Language</div>
+                <h2>Built with motion, depth and system clarity.</h2>
+              </div>
+            </div>
+
+            <div class="timeline">
+              <article class="feature-card reveal">
+                <div class="node"></div>
+                <div>
+                  <h3>Live Network Background</h3>
+                  <p>Animated blockchain-style nodes and connection lines create a living infrastructure effect behind the interface.</p>
+                </div>
+              </article>
+
+              <article class="feature-card reveal">
+                <div class="node"></div>
+                <div>
+                  <h3>Subtle Grid Intelligence</h3>
+                  <p>A restrained digital grid introduces engineering depth and structure without pushing the visual style into fantasy or gaming aesthetics.</p>
+                </div>
+              </article>
+
+              <article class="feature-card reveal">
+                <div class="node"></div>
+                <div>
+                  <h3>Premium Interaction System</h3>
+                  <p>Glass cards, controlled hover motion and refined glow behavior keep the interface polished, modern and executive in tone.</p>
+                </div>
+              </article>
+
+              <article class="feature-card reveal">
+                <div class="node"></div>
+                <div>
+                  <h3>Connected Section Flow</h3>
+                  <p>Every section transitions like part of one operating system, helping users feel the structure of the full ecosystem.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid-3 single-column-grid">
+            <article class="section-card reveal">
+              <div class="icon">A</div>
+              <h3>Premium Visual Foundation</h3>
+              <p>Dark navy layers, cyan-electric highlights and soft ambient motion create a serious digital finance atmosphere.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">B</div>
+              <h3>Scalable Product Presentation</h3>
+              <p>The same visual framework can expand across about pages, ecosystem pages, service details, token pages and contact systems.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">C</div>
+              <h3>Balanced Performance</h3>
+              <p>Animation layers are designed to feel alive while remaining controlled, smooth and suitable for modern responsive experiences.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <div class="label"><span class="dot"></span> Services</div>
+              <h2>From platform presence to full digital ecosystem execution.</h2>
+            </div>
+
+            <p>
+              Ven Aayat Tech Solutions combines technology strategy, digital infrastructure thinking
+              and premium interface development to support serious Web3 and fintech brands in their growth journey.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="section-card reveal">
+              <div class="icon">1</div>
+              <h3>Platform Design &amp; Development</h3>
+              <p>High-end digital interfaces and structured product pages designed for technical clarity, brand authority and ecosystem scale.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">2</div>
+              <h3>Web3 Product Architecture</h3>
+              <p>Thoughtful structure for blockchain products, participation systems, launch frameworks and token-aligned digital environments.</p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">3</div>
+              <h3>Brand Infrastructure Systems</h3>
+              <p>Complete visual and content systems that align positioning, product logic and trust across the full website experience.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="connector"></div>
+      </section>
+
+      <section id="contact">
+        <div class="container contact-grid">
+          <article class="contact-card reveal">
+            <div class="label"><span class="dot"></span> Contact</div>
+
+            <h2 class="contact-title">Build a stronger digital presence for the evolving economy.</h2>
+
+            <p>
+              Ven Aayat Tech Solutions is focused on building modern technology experiences that communicate
+              infrastructure strength, product readiness and long-term digital direction.
+            </p>
+
+            <div class="contact-tiles">
+              <div class="tile">
+                <small>Company</small>
+                <strong>Ven Aayat Tech Solutions Pvt. Ltd.</strong>
+              </div>
+
+              <div class="tile">
+                <small>Core Focus</small>
+                <strong>Web3, blockchain, exchange and fintech systems</strong>
+              </div>
+
+              <div class="tile">
+                <small>Approach</small>
+                <strong>Structured architecture with premium execution</strong>
+              </div>
+
+              <div class="tile">
+                <small>Direction</small>
+                <strong>Scalable digital infrastructure for modern markets</strong>
+              </div>
+
+              <div class="tile">
+                <small>Email</small>
+                <strong>your-email@example.com</strong>
+              </div>
+
+              <div class="tile">
+                <small>WhatsApp</small>
+                <strong>+00 00000 00000</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="contact-card reveal">
+            <div class="icon">✦</div>
+            <h3>Premium Web3 Company Presence</h3>
+            <p>
+              This homepage direction is built to reflect a serious technology firm with clean infrastructure visuals,
+              high-trust interface behavior and connected digital system presentation.
+            </p>
+
+            <div class="list">
+              <span>Live blockchain node background</span>
+              <span>Subtle grid and particle depth</span>
+              <span>Glass system cards with refined motion</span>
+              <span>Section-to-section connector flow</span>
+              <span>Professional Web3 and fintech positioning</span>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="#home">Back to Top</a>
+              <a class="btn" href="#about">Review Company Story</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-card reveal">
+          <div>
+            <h3>Ven Aayat Tech Solutions</h3>
+            <p>
+              Ven Aayat Tech Solutions builds premium Web3 infrastructure, blockchain platforms, token ecosystems,
+              exchange interfaces and fintech technology systems designed for modern digital finance environments.
+            </p>
+          </div>
+
+          <div class="footer-actions">
+            <a class="btn btn-primary" href="#contact">Build With Ven Aayat Tech</a>
+            <a class="btn" href="#home">Back To Top</a>
+          </div>
+        </div>
+
+        <div class="footer-links-grid reveal">
+          <div class="footer-links-card">
+            <h3>Navigation</h3>
+            <a href="#about">About</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#technology">Technology</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="footer-links-card">
+            <h3>Ecosystem</h3>
+            <a href="#ecosystem">Blockchain Development</a>
+            <a href="#ecosystem">Token Ecosystems</a>
+            <a href="#ecosystem">Exchange Interfaces</a>
+            <a href="#ecosystem">Web3 Platforms</a>
+            <a href="#ecosystem">Knowledge Systems</a>
+          </div>
+
+          <div class="footer-links-card">
+            <h3>Connect</h3>
+            <a href="#">X / Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+            <a href="#">Email</a>
+          </div>
+
+          <div class="footer-links-card">
+            <h3>Contact Info</h3>
+            <small>Email</small>
+            <p>your-email@example.com</p>
+            <small class="footer-small-gap">WhatsApp</small>
+            <p>+00 00000 00000</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year"></span> Ven Aayat Tech Solutions Pvt. Ltd. All rights reserved.</span>
+          <span>Web3 • Fintech • Infrastructure</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/network-bg.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/ui-effects.js"></script>
+</body>
+</html>
