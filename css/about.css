@@ -1,0 +1,88 @@
+/* =========================
+ABOUT PAGE
+========================= */
+
+.about-section{
+padding:100px 0;
+}
+
+.about-container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+
+.about-title{
+font-size:48px;
+font-weight:700;
+text-align:center;
+margin-bottom:40px;
+background:linear-gradient(90deg,#2F6BFF,#35C7FF);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.about-card{
+background:#0B1E3A;
+border-radius:20px;
+padding:30px;
+transition:0.3s;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.about-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(53,199,255,0.4);
+}
+
+.about-card h3{
+font-size:22px;
+margin-bottom:15px;
+color:#35C7FF;
+}
+
+.about-card p{
+font-size:16px;
+line-height:1.6;
+color:#ccc;
+}
+
+.about-ecosystem{
+margin-top:80px;
+}
+
+.about-ecosystem h2{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+}
+
+.ecosystem-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+
+.ecosystem-card{
+background:#08162B;
+padding:25px;
+border-radius:18px;
+text-align:center;
+transition:0.3s;
+}
+
+.ecosystem-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(47,107,255,0.5);
+}
+
+.ecosystem-card h4{
+margin-bottom:10px;
+color:#2F6BFF;
+}
