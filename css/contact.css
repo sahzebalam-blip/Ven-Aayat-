@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Ven Aayat Tech Solutions</title>
+
+<meta name="description" content="Contact Ven Aayat Tech Solutions for blockchain development, Web3 infrastructure, token creation, crypto platforms and fintech systems." />
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
+
+</head>
+
+<body>
+
+<canvas id="networkCanvas"></canvas>
+
+<header class="site-header">
+<div class="container nav">
+
+<a class="brand" href="index.html">
+<div class="brand-badge">VA</div>
+<div class="brand-copy">
+<strong>Ven Aayat Tech Solutions</strong>
+<span>Blockchain • Fintech • Web3 Infrastructure</span>
+</div>
+</a>
+
+<nav class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="ecosystem.html">Ecosystem</a>
+<a href="contact.html" class="active">Contact</a>
+
+</nav>
+
+</div>
+</header>
+
+<main>
+
+<section class="contact-hero">
+
+<div class="container">
+
+<div class="contact-card">
+
+<div class="contact-left">
+
+<div class="eyebrow">
+LET'S CONNECT
+</div>
+
+<h1>
+Build your Web3 ecosystem with Ven Aayat Tech
+</h1>
+
+<p>
+Whether you are launching a token, building blockchain infrastructure or creating a fintech platform — our team can help architect, design and deploy scalable digital ecosystems.
+</p>
+
+<div class="contact-points">
+
+<div class="contact-point">
+Blockchain & Web3 Development
+</div>
+
+<div class="contact-point">
+Token Creation & Smart Contracts
+</div>
+
+<div class="contact-point">
+Crypto Exchange Systems
+</div>
+
+<div class="contact-point">
+Fintech Platform Development
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-right">
+
+<form class="contact-form">
+
+<h3>Send us a message</h3>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="text" placeholder="Company / Project">
+
+<textarea placeholder="Tell us about your project" rows="5"></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div class="container">
+
+<p>
+© <span id="year"></span> Ven Aayat Tech Solutions. All rights reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script src="js/network-bg.js"></script>
+<script src="js/about.js"></script>
+
+</body>
+</html>
