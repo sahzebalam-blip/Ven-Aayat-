@@ -30,7 +30,15 @@ body {
 FINAL SHARED HEADER
 ========================= */
 
-
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(3, 9, 17, 0.92), rgba(3, 9, 17, 0.72));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(90, 164, 255, 0.08);
+}
 
 .nav {
   min-height: 96px;
@@ -1122,22 +1130,21 @@ footer { padding: 0 0 28px; }
   }
 }
 /* =========================
-FINAL UNIFIED NAVBAR
-USE SAME ON ALL PAGES
+FINAL SHARED HEADER / FOOTER
 ========================= */
 
-.site-header{
+.site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(3,9,17,0.94), rgba(3,9,17,0.78));
+  background: linear-gradient(180deg, rgba(3, 9, 17, 0.92), rgba(3, 9, 17, 0.72));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(90,164,255,0.08);
+  border-bottom: 1px solid rgba(90, 164, 255, 0.08);
 }
 
-.nav{
-  min-height: 92px;
+.nav {
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1145,7 +1152,7 @@ USE SAME ON ALL PAGES
   position: relative;
 }
 
-.brand{
+.brand {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1153,73 +1160,72 @@ USE SAME ON ALL PAGES
   min-width: 0;
 }
 
-.brand-badge{
+.brand-badge {
   width: 58px;
   height: 58px;
   border-radius: 18px;
   display: grid;
   place-items: center;
   font-weight: 800;
-  font-size: 1.1rem;
-  color: #fff;
+  font-size: 1.18rem;
+  color: #ffffff;
+  letter-spacing: 0.02em;
   background: linear-gradient(135deg, #2f6bff, #35c7ff);
-  box-shadow: 0 12px 30px rgba(47,107,255,0.28);
+  box-shadow: 0 12px 30px rgba(47, 107, 255, 0.28), inset 0 1px 0 rgba(255,255,255,0.12);
   flex-shrink: 0;
-  overflow: hidden;
 }
 
-.brand-badge img{
+.brand-badge img {
   width: 72%;
   height: 72%;
   object-fit: contain;
   display: block;
 }
 
-.brand-copy{
+.brand-copy {
   min-width: 0;
 }
 
-.brand-copy strong{
+.brand-copy strong {
   display: block;
   color: #f3f8ff;
-  font-size: 1.08rem;
+  font-size: 1.12rem;
   font-weight: 800;
   line-height: 1.15;
   white-space: nowrap;
 }
 
-.brand-copy span{
+.brand-copy span {
   display: block;
   color: #a9bdd8;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   margin-top: 4px;
   white-space: nowrap;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
   flex-wrap: wrap;
 }
 
-.nav-links a{
+.nav-links a {
   color: #dfe9f9;
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
   position: relative;
   transition: 0.25s ease;
-  padding: 4px 0;
 }
 
 .nav-links a:hover,
-.nav-links a.active{
+.nav-links a.active {
   color: #ffffff;
 }
 
 .nav-links a.active::after,
-.nav-links a:hover::after{
+.nav-links a:hover::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1227,10 +1233,11 @@ USE SAME ON ALL PAGES
   width: 100%;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg,#35c7ff,#2f6bff);
+  background: linear-gradient(90deg, #35c7ff, #2f6bff);
 }
 
-.nav-toggle{
+/* Mobile toggle support */
+.nav-toggle {
   display: none;
   width: 48px;
   height: 48px;
@@ -1244,21 +1251,90 @@ USE SAME ON ALL PAGES
   cursor: pointer;
 }
 
-.nav-toggle span{
+.nav-toggle span {
   width: 20px;
   height: 2px;
   border-radius: 999px;
-  background: #fff;
+  background: #ffffff;
   display: block;
 }
 
-@media (max-width: 980px){
-  .nav-toggle{
+/* Final footer */
+.footer {
+  padding: 32px 0 46px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 26px;
+  padding: 24px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-card p {
+  margin: 0;
+  color: #b8c9df;
+  line-height: 1.7;
+}
+
+.mini-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mini-links a {
+  color: #dfe9f9;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.25s ease;
+}
+
+.mini-links a:hover {
+  color: #ffffff;
+  border-color: rgba(53, 199, 255, 0.35);
+  box-shadow: 0 0 20px rgba(53, 199, 255, 0.14);
+}
+
+/* =========================
+RESPONSIVE HEADER / FOOTER
+========================= */
+
+@media (max-width: 980px) {
+  .nav {
+    min-height: 86px;
+  }
+
+  .brand-copy strong {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .brand-copy span {
+    font-size: 0.86rem;
+    white-space: normal;
+  }
+
+  .nav-toggle {
     display: flex;
     margin-left: auto;
   }
 
-  .nav-links{
+  .nav-links {
     position: absolute;
     top: calc(100% + 12px);
     left: 0;
@@ -1269,62 +1345,67 @@ USE SAME ON ALL PAGES
     gap: 0;
     padding: 10px;
     border-radius: 22px;
-    background: linear-gradient(180deg, rgba(7,17,31,0.96), rgba(7,17,31,0.9));
+    background: linear-gradient(180deg, rgba(7, 17, 31, 0.96), rgba(7, 17, 31, 0.9));
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
 
-  .nav-links.open{
+  .nav-links.open {
     display: flex;
   }
 
-  .nav-links a{
+  .nav-links a {
     width: 100%;
     padding: 14px 16px;
     border-radius: 14px;
   }
 
   .nav-links a.active::after,
-  .nav-links a:hover::after{
+  .nav-links a:hover::after {
     display: none;
   }
 
   .nav-links a:hover,
-  .nav-links a.active{
+  .nav-links a.active {
     background: rgba(255,255,255,0.05);
-  }
-
-  .brand-copy strong{
-    white-space: normal;
-    font-size: 1rem;
-  }
-
-  .brand-copy span{
-    white-space: normal;
-    font-size: 0.86rem;
   }
 }
 
-@media (max-width: 760px){
-  .brand{
+@media (max-width: 760px) {
+  .brand {
+    gap: 12px;
     max-width: calc(100% - 64px);
   }
 
-  .brand-badge{
+  .brand-badge {
     width: 50px;
     height: 50px;
     border-radius: 16px;
     font-size: 1rem;
   }
 
-  .brand-copy strong{
+  .brand-copy strong {
     font-size: 0.95rem;
+    line-height: 1.15;
   }
 
-  .brand-copy span{
+  .brand-copy span {
     font-size: 0.82rem;
     line-height: 1.25;
   }
+
+  .footer-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .mini-links {
+    width: 100%;
+  }
+}
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
