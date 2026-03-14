@@ -1191,3 +1191,7 @@ RESPONSIVE HEADER / FOOTER
     width: 100%;
   }
 }
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
