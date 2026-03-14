@@ -1,0 +1,127 @@
+/* =========================
+ECOSYSTEM PAGE IMPROVEMENTS
+========================= */
+
+/* Better hero balance */
+.hero-card-full h1 {
+  max-width: 13ch;
+}
+
+.hero-card-full p {
+  max-width: 820px;
+}
+
+/* Ecosystem cards spacing refinement */
+#ecosystem-overview .cards,
+#vencrypto-exchange .cards,
+#venx-token .cards,
+#venx-academy .cards,
+#infrastructure .cards,
+#why-ecosystem .cards {
+  margin-top: 10px;
+}
+
+/* Infrastructure cards equal height */
+#infrastructure .glass-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Timeline visual improvement */
+.timeline-card {
+  position: relative;
+}
+
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(63,216,255,0.25),
+    rgba(47,107,255,0.08)
+  );
+}
+
+.timeline-year {
+  position: relative;
+  z-index: 2;
+}
+
+/* CTA visual polish */
+.cta-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.03)
+  );
+}
+
+/* CTA points hover glow */
+.cta-point:hover {
+  border-color: rgba(63,216,255,0.35);
+  box-shadow: 0 10px 30px rgba(63,216,255,0.10);
+}
+
+/* Button improvements */
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg,#2f6bff,#35c7ff);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* Section spacing improvement */
+.section {
+  padding-top: 50px;
+  padding-bottom: 36px;
+}
+
+/* Mobile ecosystem layout */
+@media (max-width: 900px) {
+
+  .hero-card-full h1 {
+    max-width: 100%;
+  }
+
+  .hero-card-full p {
+    max-width: 100%;
+  }
+
+  .timeline-card::before {
+    display: none;
+  }
+
+}
+
+/* Small mobile optimization */
+@media (max-width: 600px) {
+
+  .hero-card {
+    padding: 26px;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 24px;
+  }
+
+}
