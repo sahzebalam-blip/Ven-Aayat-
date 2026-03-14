@@ -8,6 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const expanded = navLinks.classList.contains("open");
       navToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
     });
+
+    const navItems = navLinks.querySelectorAll("a");
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      const clickedInsideNav = navLinks.contains(e.target);
+      const clickedToggle = navToggle.contains(e.target);
+
+      if (!clickedInsideNav && !clickedToggle) {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
   }
 
   const yearEl = document.getElementById("year");
@@ -16,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const reveals = document.querySelectorAll(".reveal");
+
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
