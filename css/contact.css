@@ -1,136 +1,525 @@
-<!DOCTYPE html>
-<html lang="en">
+:root {
+  --bg: #07111f;
+  --bg-soft: #0b1830;
+  --panel: rgba(10, 24, 48, 0.74);
+  --panel-2: rgba(255, 255, 255, 0.05);
+  --line: rgba(116, 171, 255, 0.14);
+  --text: #ecf4ff;
+  --muted: #9fb5d4;
+  --blue: #2f6bff;
+  --cyan: #3fd8ff;
+  --gold: #f4c35a;
+  --violet: #8d7dff;
+  --shadow: 0 20px 80px rgba(0, 0, 0, 0.42);
+  --radius: 28px;
+  --grid:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+}
 
-<head>
+/* =========================
+PAGE BACKGROUND
+========================= */
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(47,107,255,0.20), transparent 24%),
+    radial-gradient(circle at 85% 12%, rgba(63,216,255,0.18), transparent 22%),
+    radial-gradient(circle at 55% 85%, rgba(141,125,255,0.14), transparent 24%),
+    linear-gradient(180deg, #050c18 0%, #08162b 34%, #07111f 100%);
+  overflow-x: hidden;
+}
 
-<title>Contact | Ven Aayat Tech Solutions</title>
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
 
-<meta name="description" content="Contact Ven Aayat Tech Solutions for blockchain development, Web3 infrastructure, token creation, crypto platforms and fintech systems." />
+body::before {
+  background-image: var(--grid);
+  background-size: 42px 42px;
+  opacity: 0.13;
+  mask-image: radial-gradient(circle at center, black 48%, transparent 95%);
+  z-index: -3;
+}
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/contact.css">
+body::after {
+  background: radial-gradient(circle at center, rgba(63,216,255,0.08), transparent 48%);
+  filter: blur(24px);
+  z-index: -4;
+}
 
-</head>
+#networkCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
 
-<body>
+main,
+.footer {
+  position: relative;
+  z-index: 2;
+}
 
-<canvas id="networkCanvas"></canvas>
+/* =========================
+HERO
+========================= */
 
-<header class="site-header">
-<div class="container nav">
+.contact-hero {
+  padding: 76px 0 30px;
+  position: relative;
+}
 
-<a class="brand" href="index.html">
-<div class="brand-badge">VA</div>
-<div class="brand-copy">
-<strong>Ven Aayat Tech Solutions</strong>
-<span>Blockchain • Fintech • Web3 Infrastructure</span>
-</div>
-</a>
+.contact-hero-card,
+.contact-info-card,
+.contact-form-card,
+.extra-card,
+.cta-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
 
-<nav class="nav-links">
+.contact-hero-card {
+  border-radius: 34px;
+  padding: 38px;
+  position: relative;
+  overflow: hidden;
+}
 
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="ecosystem.html">Ecosystem</a>
-<a href="contact.html" class="active">Contact</a>
+.contact-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -40% 18%;
+  height: 280px;
+  background: radial-gradient(circle, rgba(63,216,255,0.22), transparent 60%);
+  filter: blur(18px);
+}
 
-</nav>
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  color: #d8f5ff;
+  background: rgba(63,216,255,0.10);
+  border: 1px solid rgba(63,216,255,0.18);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
 
-</div>
-</header>
+.contact-hero h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  max-width: 10ch;
+}
 
-<main>
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #8fcbff 35%, #6ce5ff 65%, #f4c35a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-<section class="contact-hero">
+.contact-hero p {
+  max-width: 860px;
+  margin: 22px 0 0;
+  font-size: 1.04rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
 
-<div class="container">
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
 
-<div class="contact-card">
+.hero-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
 
-<div class="contact-left">
+.hero-point {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #eef5ff;
+  font-weight: 600;
+  line-height: 1.55;
+}
 
-<div class="eyebrow">
-LET'S CONNECT
-</div>
+/* =========================
+MAIN CONTACT LAYOUT
+========================= */
 
-<h1>
-Build your Web3 ecosystem with Ven Aayat Tech
-</h1>
+.contact-main {
+  padding: 26px 0 34px;
+}
 
-<p>
-Whether you are launching a token, building blockchain infrastructure or creating a fintech platform — our team can help architect, design and deploy scalable digital ecosystems.
-</p>
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 22px;
+  align-items: start;
+}
 
-<div class="contact-points">
+.contact-info-card,
+.contact-form-card {
+  border-radius: 30px;
+  padding: 30px;
+}
 
-<div class="contact-point">
-Blockchain & Web3 Development
-</div>
+.card-kicker {
+  color: #9aefff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
 
-<div class="contact-point">
-Token Creation & Smart Contracts
-</div>
+.contact-info-card h2,
+.contact-form-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.05;
+}
 
-<div class="contact-point">
-Crypto Exchange Systems
-</div>
+.contact-info-card h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
 
-<div class="contact-point">
-Fintech Platform Development
-</div>
+.contact-form-card h3 {
+  font-size: 1.8rem;
+}
 
-</div>
+.contact-info-card p,
+.contact-form-card p,
+.extra-card p,
+.cta-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.82;
+}
 
-</div>
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
 
-<div class="contact-right">
+.info-box {
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-<form class="contact-form">
+.info-box small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-size: 0.84rem;
+}
 
-<h3>Send us a message</h3>
+.info-box strong,
+.info-box a {
+  color: #eef5ff;
+  font-size: 1rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
 
-<input type="text" placeholder="Full Name" required>
+.contact-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
 
-<input type="email" placeholder="Email Address" required>
+.contact-list span {
+  position: relative;
+  padding-left: 22px;
+  color: #ddecfb;
+  line-height: 1.7;
+}
 
-<input type="text" placeholder="Company / Project">
+.contact-list span::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--gold));
+  box-shadow: 0 0 16px rgba(63,216,255,0.46);
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+}
 
-<textarea placeholder="Tell us about your project" rows="5"></textarea>
+/* =========================
+FORM
+========================= */
 
-<button type="submit">
-Send Message
-</button>
+.contact-form {
+  margin-top: 22px;
+}
 
-</form>
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
-</div>
+.form-group {
+  display: grid;
+  gap: 8px;
+}
 
-</div>
+.form-group-full {
+  grid-column: span 2;
+}
 
-</div>
+.form-group label {
+  color: #e8f1ff;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
 
-</section>
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: #eef5ff;
+  border-radius: 18px;
+  padding: 15px 16px;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.98rem;
+  transition: 0.25s ease;
+}
 
-</main>
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #93aac6;
+}
 
-<footer class="footer">
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(63,216,255,0.32);
+  box-shadow: 0 0 0 4px rgba(63,216,255,0.07);
+}
 
-<div class="container">
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
 
-<p>
-© <span id="year"></span> Ven Aayat Tech Solutions. All rights reserved.
-</p>
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
 
-</div>
+/* =========================
+EXTRA CARDS
+========================= */
 
-</footer>
+.contact-extra {
+  padding: 10px 0 34px;
+}
 
-<script src="js/network-bg.js"></script>
-<script src="js/about.js"></script>
+.contact-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
 
-</body>
-</html>
+.extra-card {
+  border-radius: 28px;
+  padding: 26px;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.extra-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(63,216,255,0.20);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+}
+
+.extra-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.28rem;
+}
+
+/* =========================
+CTA
+========================= */
+
+.contact-cta {
+  padding: 10px 0 36px;
+}
+
+.cta-card {
+  border-radius: 34px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 28px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -50% -10%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(47,107,255,0.24), transparent 64%);
+  filter: blur(4px);
+}
+
+.cta-card h2 {
+  margin: 0 0 14px;
+  max-width: 12ch;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.cta-points {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+}
+
+.cta-point {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #eef5ff;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* =========================
+ANIMATION
+========================= */
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .contact-layout,
+  .cta-card,
+  .contact-extra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-points {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card h2 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-hero {
+    padding-top: 28px;
+  }
+
+  .contact-hero-card,
+  .contact-info-card,
+  .contact-form-card,
+  .extra-card,
+  .cta-card {
+    border-radius: 24px;
+    padding: 22px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+    line-height: 1.02;
+    max-width: 100%;
+  }
+
+  .form-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group-full {
+    grid-column: span 1;
+  }
+
+  .hero-actions,
+  .form-actions,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .cta-point {
+    min-height: auto;
+    padding: 16px 18px;
+  }
+}
