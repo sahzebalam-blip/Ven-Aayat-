@@ -982,3 +982,63 @@ FINAL CTA FIX
     padding: 16px 18px;
   }
 }
+.footer {
+  padding: 28px 0 46px;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 26px;
+  padding: 24px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-card p {
+  margin: 0;
+  color: #b8c9df;
+  line-height: 1.7;
+}
+
+.mini-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mini-links a {
+  color: #dfe9f9;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.25s ease;
+}
+
+.mini-links a:hover {
+  color: #ffffff;
+  border-color: rgba(53, 199, 255, 0.35);
+  box-shadow: 0 0 20px rgba(53, 199, 255, 0.14);
+}
+
+@media (max-width: 760px) {
+  .footer-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .mini-links {
+    width: 100%;
+  }
+}
