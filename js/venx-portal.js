@@ -24,43 +24,35 @@ if (canvas && typeof THREE !== "undefined") {
   const portalGroup = new THREE.Group();
   scene.add(portalGroup);
 
-  // Core glow rings
-  const ringMaterial1 = new THREE.MeshBasicMaterial({
-    color: 0x7a5cff,
-    transparent: true,
-    opacity: 0.95
-  });
-
-  const ringMaterial2 = new THREE.MeshBasicMaterial({
-    color: 0x00d9ff,
-    transparent: true,
-    opacity: 0.78
-  });
-
-  const ringMaterial3 = new THREE.MeshBasicMaterial({
-    color: 0xffffff,
-    transparent: true,
-    opacity: 0.28
-  });
-
   const ring1 = new THREE.Mesh(
     new THREE.TorusGeometry(1.8, 0.08, 32, 180),
-    ringMaterial1
+    new THREE.MeshBasicMaterial({
+      color: 0x7a5cff,
+      transparent: true,
+      opacity: 0.95
+    })
   );
 
   const ring2 = new THREE.Mesh(
     new THREE.TorusGeometry(2.35, 0.045, 24, 180),
-    ringMaterial2
+    new THREE.MeshBasicMaterial({
+      color: 0x00d9ff,
+      transparent: true,
+      opacity: 0.78
+    })
   );
   ring2.rotation.x = Math.PI / 2.2;
 
   const ring3 = new THREE.Mesh(
     new THREE.TorusGeometry(1.2, 0.035, 24, 160),
-    ringMaterial3
+    new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.28
+    })
   );
   ring3.rotation.y = Math.PI / 2.25;
 
-  // Inner wire core
   const core = new THREE.Mesh(
     new THREE.IcosahedronGeometry(0.65, 1),
     new THREE.MeshBasicMaterial({
@@ -71,7 +63,6 @@ if (canvas && typeof THREE !== "undefined") {
     })
   );
 
-  // Outer halo ring
   const halo = new THREE.Mesh(
     new THREE.TorusGeometry(3.15, 0.02, 16, 240),
     new THREE.MeshBasicMaterial({
@@ -84,10 +75,8 @@ if (canvas && typeof THREE !== "undefined") {
 
   portalGroup.add(ring1, ring2, ring3, core, halo);
 
-  // Particle field
   const particleCount = 700;
   const positions = new Float32Array(particleCount * 3);
-  const scales = new Float32Array(particleCount);
 
   for (let i = 0; i < particleCount; i++) {
     const i3 = i * 3;
@@ -98,13 +87,10 @@ if (canvas && typeof THREE !== "undefined") {
     positions[i3] = Math.cos(angle) * radius;
     positions[i3 + 1] = Math.sin(angle) * (radius * 0.45) + spread;
     positions[i3 + 2] = (Math.random() - 0.5) * 6;
-
-    scales[i] = Math.random();
   }
 
   const particlesGeometry = new THREE.BufferGeometry();
   particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  particlesGeometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
 
   const particlesMaterial = new THREE.PointsMaterial({
     color: 0xa896ff,
@@ -117,7 +103,6 @@ if (canvas && typeof THREE !== "undefined") {
   const particles = new THREE.Points(particlesGeometry, particlesMaterial);
   scene.add(particles);
 
-  // Soft background stars
   const bgCount = 320;
   const bgPositions = new Float32Array(bgCount * 3);
 
@@ -141,7 +126,6 @@ if (canvas && typeof THREE !== "undefined") {
   const bgStars = new THREE.Points(bgGeometry, bgMaterial);
   scene.add(bgStars);
 
-  // Mouse interaction
   let targetX = 0;
   let targetY = 0;
   let currentX = 0;
@@ -152,7 +136,6 @@ if (canvas && typeof THREE !== "undefined") {
     targetY = (event.clientY / window.innerHeight - 0.5) * 0.9;
   });
 
-  // Scroll depth
   let scrollTarget = 0;
   let scrollCurrent = 0;
 
