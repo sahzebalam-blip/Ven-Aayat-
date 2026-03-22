@@ -241,3 +241,13 @@ body.venx-page {
   border-top: 1px solid rgba(255,255,255,0.05);
   color: var(--text-soft);
 }
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
