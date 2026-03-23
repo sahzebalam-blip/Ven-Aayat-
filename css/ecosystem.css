@@ -661,3 +661,16 @@ RESPONSIVE
     padding: 16px 18px;
   }
 }
+/* Remove forced equal-height behavior for these sections */
+#vencrypto-exchange .cards,
+#venx-token .cards,
+#venx-academy .cards {
+  align-items: start;
+}
+
+#vencrypto-exchange .glass-card,
+#venx-token .glass-card,
+#venx-academy .glass-card {
+  min-height: auto;
+  height: auto;
+}
