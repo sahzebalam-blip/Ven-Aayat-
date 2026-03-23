@@ -286,3 +286,106 @@ ECOSYSTEM PAGE FINAL
     min-height: auto;
   }
 }
+/* =========================
+FINAL ECOSYSTEM FIX
+========================= */
+
+/* ===== SECTION HEAD FIX ===== */
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.section-head h2 {
+  max-width: 20ch;
+  line-height: 1.05;
+}
+
+.section-head > p {
+  max-width: 720px;
+  margin-top: 6px;
+}
+
+/* ===== HERO BALANCE ===== */
+.hero-single {
+  padding-bottom: 72px;
+}
+
+/* ===== CTA FIX (MAIN ISSUE) ===== */
+.cta-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 36px;
+}
+
+/* IMPORTANT: correct targeting */
+.cta-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Buttons polish */
+.cta-actions .btn-primary {
+  background: linear-gradient(135deg,#2f6bff,#35c7ff);
+}
+
+.cta-actions .btn-secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.cta-actions .btn-primary:hover,
+.cta-actions .btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== CTA POINTS ===== */
+.cta-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-point {
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+
+  .section-head {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head h2,
+  .section-head > p {
+    max-width: 100%;
+  }
+
+  .cta-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  .cta-actions a {
+    width: 100%;
+  }
+}
