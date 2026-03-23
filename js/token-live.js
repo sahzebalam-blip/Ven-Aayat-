@@ -157,3 +157,5 @@ if (document.body.classList.contains("venx-page")) {
     });
   }
 }
+lines.material.opacity = 0.12 + Math.sin(t * 2) * 0.04;
+particles.material.opacity = 0.6 + Math.sin(t * 2) * 0.1;
