@@ -326,3 +326,19 @@ body.venx-page {
 .reveal-active .bar div {
   width: inherit;
 }
+.section {
+  position: relative;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 300px;
+  height: 300px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(122,92,255,0.08), transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
