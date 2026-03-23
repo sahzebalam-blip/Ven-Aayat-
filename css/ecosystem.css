@@ -327,3 +327,81 @@
     padding: 16px 18px;
   }
 }
+/* =========================
+FINAL CTA FIX (OVERRIDE SAFE)
+========================= */
+
+/* Force CTA layout */
+.cta-card {
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+  padding: 36px !important;
+}
+
+/* Left content */
+.cta-card > div:first-child {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Buttons FIX (important part) */
+.cta-actions a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Primary button */
+.cta-actions a.btn-primary {
+  background: linear-gradient(135deg, #2f6bff, #35c7ff) !important;
+  color: #fff !important;
+  border: 1px solid rgba(104,180,255,0.25) !important;
+}
+
+/* Secondary button FIX (this was breaking) */
+.cta-actions a.btn-secondary {
+  background: rgba(255,255,255,0.05) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+}
+
+/* Points layout */
+.cta-points {
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual point */
+.cta-point {
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+  .cta-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions a {
+    width: 100%;
+  }
+}
