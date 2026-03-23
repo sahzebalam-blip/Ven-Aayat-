@@ -1,37 +1,15 @@
-:root {
-  --bg: #07111f;
-  --bg-soft: #0b1830;
-  --panel: rgba(10, 24, 48, 0.74);
-  --panel-2: rgba(255, 255, 255, 0.05);
-  --line: rgba(116, 171, 255, 0.14);
-  --text: #ecf4ff;
-  --muted: #9fb5d4;
-  --blue: #2f6bff;
-  --cyan: #3fd8ff;
-  --teal: #00d2c9;
-  --gold: #f4c35a;
-  --violet: #8d7dff;
-  --shadow: 0 20px 80px rgba(0, 0, 0, 0.42);
-  --radius: 28px;
-  --radius-sm: 20px;
-  --max: 1220px;
-  --grid:
-    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-}
-
 /* =========================
-ABOUT PAGE BACKGROUND
+ABOUT PAGE ONLY
+Works with master style.css
 ========================= */
 
+/* Background enhancement for About page only */
 body {
-  color: var(--text);
   background:
     radial-gradient(circle at 15% 20%, rgba(47,107,255,0.20), transparent 24%),
     radial-gradient(circle at 85% 12%, rgba(63,216,255,0.18), transparent 22%),
     radial-gradient(circle at 55% 85%, rgba(141,125,255,0.14), transparent 24%),
     linear-gradient(180deg, #050c18 0%, #08162b 34%, #07111f 100%);
-  overflow-x: hidden;
 }
 
 body::before,
@@ -43,7 +21,9 @@ body::after {
 }
 
 body::before {
-  background-image: var(--grid);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
   background-size: 42px 42px;
   opacity: 0.13;
   mask-image: radial-gradient(circle at center, black 48%, transparent 95%);
@@ -87,12 +67,6 @@ ABOUT HERO
   background: none !important;
 }
 
-main,
-.footer {
-  position: relative;
-  z-index: 2;
-}
-
 .hero .container,
 .hero-single .container,
 .hero-card,
@@ -118,7 +92,7 @@ main,
 .cta-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: var(--shadow);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
@@ -164,7 +138,6 @@ main,
 
 .hero h1 {
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3rem, 6vw, 6rem);
   line-height: 0.95;
   letter-spacing: -0.05em;
@@ -200,27 +173,27 @@ main,
   margin-top: 26px;
 }
 
-.metric {
+.hero-metrics .metric {
   padding: 18px;
   border-radius: 22px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-.metric strong {
+.hero-metrics .metric strong {
   display: block;
   font-size: 1.4rem;
   margin-bottom: 6px;
 }
 
-.metric span {
+.hero-metrics .metric span {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.5;
 }
 
 /* =========================
-SECTIONS
+ABOUT SECTIONS
 ========================= */
 
 .section {
@@ -242,8 +215,8 @@ SECTIONS
   margin: 0;
   font-size: clamp(1.7rem, 3vw, 3rem);
   line-height: 1.05;
-  font-family: 'Space Grotesk', sans-serif;
   letter-spacing: -0.03em;
+  max-width: 12ch;
 }
 
 .section-head p {
@@ -260,7 +233,7 @@ SECTIONS
 }
 
 .glass-card {
-  border-radius: var(--radius);
+  border-radius: 28px;
   padding: 24px;
   position: relative;
   overflow: hidden;
@@ -353,7 +326,7 @@ SECTIONS
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--cyan), var(--gold));
+  background: linear-gradient(135deg, var(--cyan), #f4c35a);
   box-shadow: 0 0 16px rgba(63,216,255,0.46);
   position: absolute;
   left: 0;
@@ -390,7 +363,7 @@ TIMELINE / CTA
 }
 
 .timeline-card {
-  border-radius: var(--radius);
+  border-radius: 28px;
   padding: 22px;
   display: grid;
   grid-template-columns: 84px 1fr;
@@ -451,7 +424,6 @@ TIMELINE / CTA
   font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .cta-card p {
