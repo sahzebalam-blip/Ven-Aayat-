@@ -204,33 +204,65 @@ body.venx-page {
 
 /* TOKENOMICS */
 
-.tokenomics {
-  max-width: 800px;
-  margin: auto;
+.tokenomics-grid {
+  max-width: 900px;
+  margin: 40px auto 0;
   display: grid;
-  gap: 12px;
+  gap: 18px;
 }
 
-.tokenomics div {
-  padding: 16px;
-  border-radius: 12px;
+.token-block {
+  padding: 22px;
+  border-radius: 16px;
 
-  background: var(--glass);
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(122,92,255,0.2);
+
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
 }
 
-.tokenomics div:hover {
-  border-color: var(--cyan);
+.token-block:hover {
+  transform: translateY(-6px);
+  border-color: #7a5cff;
+  box-shadow: 0 0 20px rgba(122,92,255,0.15);
 }
 
-/* CTA */
-
-.cta {
-  padding: 100px 20px;
+.token-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.cta h2 {
-  font-size: 46px;
+.token-head h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.token-head span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #7a5cff, #00d9ff);
+  width: 0;
+  transition: width 1.2s ease;
+}
+
+/* animation */
+.reveal-active .bar div {
+  width: inherit;
 }
 
 /* FOOTER */
