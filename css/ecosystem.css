@@ -674,3 +674,47 @@ RESPONSIVE
   min-height: auto;
   height: auto;
 }
+/* =========================
+ECOSYSTEM ICON FIX
+========================= */
+
+.icon-wrap {
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(47, 107, 255, 0.16),
+    rgba(63, 216, 255, 0.08)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.icon-wrap svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+  fill: none;
+  stroke: #8fe7ff;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+/* extra safety for shapes like circle */
+.icon-wrap svg circle,
+.icon-wrap svg path,
+.icon-wrap svg line,
+.icon-wrap svg polyline,
+.icon-wrap svg rect {
+  fill: none;
+  stroke: #8fe7ff;
+}
