@@ -1,559 +1,525 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ven Aayat Tech Solutions | Web3 • Fintech • Infrastructure</title>
-
-  <meta
-    name="description"
-    content="Ven Aayat Tech Solutions builds premium Web3 infrastructure, blockchain platforms, token ecosystems, exchange interfaces and fintech technology systems."
-  />
-
-  <meta property="og:title" content="Ven Aayat Tech Solutions | Web3 Infrastructure" />
-  <meta
-    property="og:description"
-    content="Ven Aayat Tech Solutions builds premium Web3 infrastructure, blockchain platforms, token ecosystems and fintech technology systems."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://venaayat.com" />
-  <meta property="og:image" content="https://venaayat.com/assets/images/preview.jpg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ven Aayat Tech Solutions" />
-  <meta
-    name="twitter:description"
-    content="Premium Web3 infrastructure, blockchain platforms and fintech technology systems."
-  />
-  <meta name="twitter:image" content="https://venaayat.com/assets/images/preview.jpg" />
-
-  <link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg" />
-  <link rel="icon" type="image/png" href="assets/logos/favicon.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-</head>
-<body>
-  <canvas id="networkCanvas"></canvas>
-  <canvas id="particleCanvas"></canvas>
-  <div class="grid-overlay"></div>
-  <div class="noise"></div>
-
-  <div class="glow-wrap" aria-hidden="true">
-    <div class="glow g1"></div>
-    <div class="glow g2"></div>
-    <div class="glow g3"></div>
-  </div>
-
-  <div class="site">
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="index.html" aria-label="Ven Aayat Tech Home">
-          <div class="brand-badge">VA</div>
-          <div class="brand-copy">
-            <strong>Ven Aayat Tech Solutions</strong>
-            <span>Blockchain • Fintech • Web3 Infrastructure</span>
-          </div>
-        </a>
-
-        <button class="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <nav class="nav-links" aria-label="Primary Navigation">
-          <a href="index.html" class="active">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="ecosystem.html">Ecosystem</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero-video-strip reveal">
-        <div class="container">
-          <div class="panel-rectangle">
-            <div class="panel-video-rectangle">
-              <video
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto"
-                disablepictureinpicture
-                controlslist="nodownload noplaybackrate noremoteplayback nofullscreen"
-              >
-                <source src="assets/videos/intro.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="hero" id="home">
-        <div class="container hero-grid">
-          <div class="hero-copy reveal">
-            <div class="eyebrow">
-              <span class="dot"></span>
-              Live Digital Infrastructure • Premium Web3 Systems
-            </div>
-
-            <h1>Engineering the <span class="grad">next layer</span> of digital finance.</h1>
-
-            <p>
-              Ven Aayat Tech Solutions develops premium Web3 infrastructure, token ecosystems,
-              exchange interfaces, blockchain products and fintech technology platforms designed
-              with strong architecture, modern execution and enterprise-grade presentation.
-            </p>
-
-            <div class="hero-actions">
-              <a href="ecosystem.html" class="btn btn-primary">View Ecosystem</a>
-              <a href="about.html" class="btn">See Company Story</a>
-            </div>
-
-            <div class="metrics">
-              <article class="metric">
-                <h3>Web3 Infrastructure</h3>
-                <p>Blockchain systems, token layers, platform architecture and connected digital ecosystems.</p>
-              </article>
-
-              <article class="metric">
-                <h3>Premium Experience</h3>
-                <p>Glass interface design, layered visuals and refined motion built for high-trust presentation.</p>
-              </article>
-
-              <article class="metric">
-                <h3>Fintech Positioning</h3>
-                <p>Serious company-grade structure shaped for digital finance, infrastructure and innovation brands.</p>
-              </article>
-            </div>
-          </div>
-
-          <div class="hero-visual reveal">
-            <div class="panel">
-              <div class="panel-head">
-                <span>System Overview</span>
-                <div class="live"><span class="dot"></span> Live Network State</div>
-              </div>
-
-              <div class="panel-body">
-                <div class="overview">
-                  <div class="panel-box">
-                    <div class="title-row">
-                      <h3>Infrastructure Activity</h3>
-                      <span class="badge">Real-Time</span>
-                    </div>
-
-                    <div class="bars" aria-hidden="true">
-                      <i style="height:32%"></i>
-                      <i style="height:54%"></i>
-                      <i style="height:44%"></i>
-                      <i style="height:74%"></i>
-                      <i style="height:60%"></i>
-                      <i style="height:82%"></i>
-                    </div>
-                  </div>
-
-                  <div class="stack">
-                    <div class="panel-box">
-                      <small>Core Layer</small>
-                      <strong>Blockchain Systems</strong>
-                    </div>
-                    <div class="panel-box">
-                      <small>Digital Layer</small>
-                      <strong>Exchange + Token + Academy</strong>
-                    </div>
-                    <div class="panel-box">
-                      <small>Experience Layer</small>
-                      <strong>Glass Interface Architecture</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="panel-box">
-                  <div class="title-row">
-                    <h3>Operating Structure</h3>
-                    <span class="badge">Connected</span>
-                  </div>
-
-                  <div class="panel-list">
-                    <span>Dark navy system canvas with electric blue motion depth</span>
-                    <span>Live node network and flowing section connectors</span>
-                    <span>Premium Web3 company interface with a clean fintech presentation</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="connector"></div>
-      </section>
-
-      <section id="about">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <div class="label"><span class="dot"></span> About The Firm</div>
-              <h2>Technology-led digital systems built for the next financial era.</h2>
-            </div>
-
-            <p>
-              Ven Aayat Tech Solutions operates at the intersection of blockchain technology,
-              fintech innovation and platform engineering. The company focuses on building
-              structured digital ecosystems that combine technology depth, scalable architecture
-              and premium presentation.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="section-card reveal">
-              <div class="icon">01</div>
-              <h3>Strategic Technology Positioning</h3>
-              <p>We develop digital products that reflect the standards of a modern Web3 and fintech firm, not a conventional brochure-style web presence.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">02</div>
-              <h3>Infrastructure-First Thinking</h3>
-              <p>Every layer is designed as part of a connected operating system, from platform interface and product flow to ecosystem presentation.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">03</div>
-              <h3>Professional Digital Identity</h3>
-              <p>Our approach combines visual precision, system clarity and future-ready architecture to build trust across digital finance audiences.</p>
-            </article>
-          </div>
-
-          <div class="band reveal">
-            <div class="flow-line"></div>
-
-            <div class="band-grid">
-              <div class="band-tile">
-                <small>Core Direction</small>
-                <strong>Web3 and fintech infrastructure</strong>
-              </div>
-
-              <div class="band-tile">
-                <small>Design Language</small>
-                <strong>Dark digital systems with controlled glow</strong>
-              </div>
-
-              <div class="band-tile">
-                <small>Product Logic</small>
-                <strong>Connected architecture across all sections</strong>
-              </div>
-
-              <div class="band-tile">
-                <small>Brand Feel</small>
-                <strong>Premium, technical and credible</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="connector"></div>
-      </section>
-
-      <section id="ecosystem">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <div class="label"><span class="dot"></span> Ecosystem</div>
-              <h2>A unified ecosystem across infrastructure, assets and digital participation.</h2>
-            </div>
-
-            <p>
-              The Ven Aayat ecosystem is structured as an interconnected digital framework where
-              blockchain products, participation models, knowledge platforms and trading interfaces
-              function as one larger technology environment.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="section-card reveal">
-              <div class="icon">⚙</div>
-              <h3>Blockchain Development</h3>
-              <p>Custom blockchain solutions, smart contract structures and infrastructure-ready product frameworks for modern digital ventures.</p>
-              <div class="list">
-                <span>Technical system architecture</span>
-                <span>Product-focused development logic</span>
-              </div>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">◈</div>
-              <h3>Token Ecosystems</h3>
-              <p>Utility-focused token frameworks, ecosystem positioning and participation models designed for scalable digital economies.</p>
-              <div class="list">
-                <span>Utility and ecosystem alignment</span>
-                <span>Structured token presentation</span>
-              </div>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">▣</div>
-              <h3>Exchange Interfaces</h3>
-              <p>Digital asset platform interfaces with strong trust signals, modern market design language and clean execution flows.</p>
-              <div class="list">
-                <span>Fintech-grade product styling</span>
-                <span>High-clarity interface experience</span>
-              </div>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">⌘</div>
-              <h3>Web3 Platforms</h3>
-              <p>Secure and scalable Web3 platform experiences built for user interaction, ecosystem engagement and digital expansion.</p>
-              <div class="list">
-                <span>Modern decentralized interaction</span>
-                <span>Future-ready product direction</span>
-              </div>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">⬢</div>
-              <h3>Academy &amp; Knowledge Systems</h3>
-              <p>Structured education environments that support understanding of markets, blockchain technology and digital opportunity models.</p>
-              <div class="list">
-                <span>Learning architecture</span>
-                <span>Knowledge-driven ecosystem support</span>
-              </div>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">↗</div>
-              <h3>Digital Growth Infrastructure</h3>
-              <p>Platform layers built to support expansion, onboarding, ecosystem visibility and professional market-facing presentation.</p>
-              <div class="list">
-                <span>Growth-ready digital framework</span>
-                <span>Scalable company presentation</span>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="connector"></div>
-      </section>
-
-      <section id="technology">
-        <div class="container grid-2">
-          <div>
-            <div class="section-head reveal">
-              <div>
-                <div class="label"><span class="dot"></span> Technology Language</div>
-                <h2>Built with motion, depth and system clarity.</h2>
-              </div>
-            </div>
-
-            <div class="timeline">
-              <article class="feature-card reveal">
-                <div class="node"></div>
-                <div>
-                  <h3>Live Network Background</h3>
-                  <p>Animated blockchain-style nodes and connection lines create a living infrastructure effect behind the interface.</p>
-                </div>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="node"></div>
-                <div>
-                  <h3>Subtle Grid Intelligence</h3>
-                  <p>A restrained digital grid introduces engineering depth and structure without pushing the visual style into fantasy or gaming aesthetics.</p>
-                </div>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="node"></div>
-                <div>
-                  <h3>Premium Interaction System</h3>
-                  <p>Glass cards, controlled hover motion and refined glow behavior keep the interface polished, modern and executive in tone.</p>
-                </div>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="node"></div>
-                <div>
-                  <h3>Connected Section Flow</h3>
-                  <p>Every section transitions like part of one operating system, helping users feel the structure of the full ecosystem.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="grid-3 single-column-grid">
-            <article class="section-card reveal">
-              <div class="icon">A</div>
-              <h3>Premium Visual Foundation</h3>
-              <p>Dark navy layers, cyan-electric highlights and soft ambient motion create a serious digital finance atmosphere.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">B</div>
-              <h3>Scalable Product Presentation</h3>
-              <p>The same visual framework can expand across about pages, ecosystem pages, service details, token pages and contact systems.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">C</div>
-              <h3>Balanced Performance</h3>
-              <p>Animation layers are designed to feel alive while remaining controlled, smooth and suitable for modern responsive experiences.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="connector"></div>
-      </section>
-
-      <section id="services">
-        <div class="container">
-          <div class="section-head reveal">
-            <div>
-              <div class="label"><span class="dot"></span> Services</div>
-              <h2>From platform presence to full digital ecosystem execution.</h2>
-            </div>
-
-            <p>
-              Ven Aayat Tech Solutions combines technology strategy, digital infrastructure thinking
-              and premium interface development to support serious Web3 and fintech brands in their growth journey.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="section-card reveal">
-              <div class="icon">1</div>
-              <h3>Platform Design &amp; Development</h3>
-              <p>High-end digital interfaces and structured product pages designed for technical clarity, brand authority and ecosystem scale.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">2</div>
-              <h3>Web3 Product Architecture</h3>
-              <p>Thoughtful structure for blockchain products, participation systems, launch frameworks and token-aligned digital environments.</p>
-            </article>
-
-            <article class="section-card reveal">
-              <div class="icon">3</div>
-              <h3>Brand Infrastructure Systems</h3>
-              <p>Complete visual and content systems that align positioning, product logic and trust across the full website experience.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="connector"></div>
-      </section>
-
-      <section id="contact">
-        <div class="container contact-grid">
-          <article class="contact-card reveal">
-            <div class="label"><span class="dot"></span> Contact</div>
-
-            <h2 class="contact-title">Build a stronger digital presence for the evolving economy.</h2>
-
-            <p>
-              Ven Aayat Tech Solutions is focused on building modern technology experiences that communicate
-              infrastructure strength, product readiness and long-term digital direction.
-            </p>
-
-            <div class="contact-tiles">
-              <div class="tile">
-                <small>Company</small>
-                <strong>Ven Aayat Tech Solutions Pvt. Ltd.</strong>
-              </div>
-
-              <div class="tile">
-                <small>Core Focus</small>
-                <strong>Web3, blockchain, exchange and fintech systems</strong>
-              </div>
-
-              <div class="tile">
-                <small>Approach</small>
-                <strong>Structured architecture with premium execution</strong>
-              </div>
-
-              <div class="tile">
-                <small>Direction</small>
-                <strong>Scalable digital infrastructure for modern markets</strong>
-              </div>
-
-              <div class="tile">
-                <small>Email</small>
-                <strong>your-adm.venitech@gmail.com</strong>
-              </div>
-
-              <div class="tile">
-                <small>WhatsApp</small>
-                <strong>+91 94173 26700</strong>
-              </div>
-            </div>
-          </article>
-
-          <article class="contact-card reveal">
-            <div class="icon">✦</div>
-            <h3>Premium Web3 Company Presence</h3>
-            <p>
-              This homepage direction is built to reflect a serious technology firm with clean infrastructure visuals,
-              high-trust interface behavior and connected digital system presentation.
-            </p>
-
-            <div class="list">
-              <span>Live blockchain node background</span>
-              <span>Subtle grid and particle depth</span>
-              <span>Glass system cards with refined motion</span>
-              <span>Section-to-section connector flow</span>
-              <span>Professional Web3 and fintech positioning</span>
-            </div>
-
-            <div class="contact-actions">
-              <a class="btn btn-primary" href="contact.html">Start a Project</a>
-              <a class="btn" href="about.html">Review Company Story</a>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-card reveal">
-          <div>
-            <div class="brand" style="margin-bottom: 10px;">
-              <div class="brand-badge">VA</div>
-              <div class="brand-copy">
-                <strong>Ven Aayat Tech Solutions Pvt. Ltd.</strong>
-                <span>Building digital infrastructure for the future.</span>
-              </div>
-            </div>
-
-            <p>© <span id="year"></span> Ven Aayat Tech Solutions Pvt. Ltd. All rights reserved.</p>
-          </div>
-
-          <div class="mini-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="ecosystem.html">Ecosystem</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script src="js/network-bg.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+:root {
+  --bg: #07111f;
+  --bg-soft: #0b1830;
+  --panel: rgba(10, 24, 48, 0.74);
+  --panel-2: rgba(255, 255, 255, 0.05);
+  --line: rgba(116, 171, 255, 0.14);
+  --text: #ecf4ff;
+  --muted: #9fb5d4;
+  --blue: #2f6bff;
+  --cyan: #3fd8ff;
+  --gold: #f4c35a;
+  --violet: #8d7dff;
+  --shadow: 0 20px 80px rgba(0, 0, 0, 0.42);
+  --radius: 28px;
+  --grid:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+}
+
+/* =========================
+PAGE BACKGROUND
+========================= */
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(47,107,255,0.20), transparent 24%),
+    radial-gradient(circle at 85% 12%, rgba(63,216,255,0.18), transparent 22%),
+    radial-gradient(circle at 55% 85%, rgba(141,125,255,0.14), transparent 24%),
+    linear-gradient(180deg, #050c18 0%, #08162b 34%, #07111f 100%);
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background-image: var(--grid);
+  background-size: 42px 42px;
+  opacity: 0.13;
+  mask-image: radial-gradient(circle at center, black 48%, transparent 95%);
+  z-index: -3;
+}
+
+body::after {
+  background: radial-gradient(circle at center, rgba(63,216,255,0.08), transparent 48%);
+  filter: blur(24px);
+  z-index: -4;
+}
+
+#networkCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+
+main,
+.footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+HERO
+========================= */
+
+.contact-hero {
+  padding: 76px 0 30px;
+  position: relative;
+}
+
+.contact-hero-card,
+.contact-info-card,
+.contact-form-card,
+.extra-card,
+.cta-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.contact-hero-card {
+  border-radius: 34px;
+  padding: 38px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -10% -40% 18%;
+  height: 280px;
+  background: radial-gradient(circle, rgba(63,216,255,0.22), transparent 60%);
+  filter: blur(18px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  color: #d8f5ff;
+  background: rgba(63,216,255,0.10);
+  border: 1px solid rgba(63,216,255,0.18);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact-hero h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  max-width: 10ch;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #8fcbff 35%, #6ce5ff 65%, #f4c35a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact-hero p {
+  max-width: 860px;
+  margin: 22px 0 0;
+  font-size: 1.04rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-point {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #eef5ff;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+/* =========================
+MAIN CONTACT LAYOUT
+========================= */
+
+.contact-main {
+  padding: 26px 0 34px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.contact-info-card,
+.contact-form-card {
+  border-radius: 30px;
+  padding: 30px;
+}
+
+.card-kicker {
+  color: #9aefff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.contact-info-card h2,
+.contact-form-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.05;
+}
+
+.contact-info-card h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.contact-form-card h3 {
+  font-size: 1.8rem;
+}
+
+.contact-info-card p,
+.contact-form-card p,
+.extra-card p,
+.cta-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.82;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.info-box {
+  border-radius: 22px;
+  padding: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.info-box small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-size: 0.84rem;
+}
+
+.info-box strong,
+.info-box a {
+  color: #eef5ff;
+  font-size: 1rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.contact-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.contact-list span {
+  position: relative;
+  padding-left: 22px;
+  color: #ddecfb;
+  line-height: 1.7;
+}
+
+.contact-list span::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--gold));
+  box-shadow: 0 0 16px rgba(63,216,255,0.46);
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+}
+
+/* =========================
+FORM
+========================= */
+
+.contact-form {
+  margin-top: 22px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group-full {
+  grid-column: span 2;
+}
+
+.form-group label {
+  color: #e8f1ff;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: #eef5ff;
+  border-radius: 18px;
+  padding: 15px 16px;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.98rem;
+  transition: 0.25s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #93aac6;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(63,216,255,0.32);
+  box-shadow: 0 0 0 4px rgba(63,216,255,0.07);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* =========================
+EXTRA CARDS
+========================= */
+
+.contact-extra {
+  padding: 10px 0 34px;
+}
+
+.contact-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.extra-card {
+  border-radius: 28px;
+  padding: 26px;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.extra-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(63,216,255,0.20);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+}
+
+.extra-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.28rem;
+}
+
+/* =========================
+CTA
+========================= */
+
+.contact-cta {
+  padding: 10px 0 36px;
+}
+
+.cta-card {
+  border-radius: 34px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 28px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -50% -10%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(47,107,255,0.24), transparent 64%);
+  filter: blur(4px);
+}
+
+.cta-card h2 {
+  margin: 0 0 14px;
+  max-width: 12ch;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.cta-points {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+}
+
+.cta-point {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #eef5ff;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* =========================
+ANIMATION
+========================= */
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .contact-layout,
+  .cta-card,
+  .contact-extra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-points {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card h2 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-hero {
+    padding-top: 28px;
+  }
+
+  .contact-hero-card,
+  .contact-info-card,
+  .contact-form-card,
+  .extra-card,
+  .cta-card {
+    border-radius: 24px;
+    padding: 22px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+    line-height: 1.02;
+    max-width: 100%;
+  }
+
+  .form-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group-full {
+    grid-column: span 1;
+  }
+
+  .hero-actions,
+  .form-actions,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .cta-point {
+    min-height: auto;
+    padding: 16px 18px;
+  }
+}
