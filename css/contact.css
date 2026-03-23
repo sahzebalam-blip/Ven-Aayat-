@@ -523,3 +523,39 @@ RESPONSIVE
     padding: 16px 18px;
   }
 }
+/* =========================
+CONTACT BUTTON FIX
+========================= */
+
+.hero-actions .btn,
+.form-actions .btn,
+.cta-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid rgba(104, 180, 255, 0.18);
+  transition: 0.28s ease;
+}
+
+/* Primary */
+.btn-primary {
+  background: linear-gradient(135deg, #2f6bff, #35c7ff);
+  color: #fff;
+}
+
+/* Secondary */
+.btn-secondary {
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+}
+
+/* Hover */
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(118, 201, 255, 0.32);
+}
