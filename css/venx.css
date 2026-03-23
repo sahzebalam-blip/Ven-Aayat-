@@ -342,3 +342,24 @@ body.venx-page {
   filter: blur(30px);
   pointer-events: none;
 }
+.btn.primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn.primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -30%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.btn.primary:hover::after {
+  opacity: 1;
+}
