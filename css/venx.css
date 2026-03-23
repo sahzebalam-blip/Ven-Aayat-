@@ -395,3 +395,6 @@ body.venx-page {
 .btn.primary:hover::after {
   opacity: 1;
 }
+.bar div {
+  box-shadow: 0 0 10px rgba(122,92,255,0.4);
+}
