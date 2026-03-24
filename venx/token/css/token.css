@@ -270,7 +270,9 @@
 .utility-layer p {
   margin: 0;
 }
-
+.utility-layer strong {
+  font-size: 1.15rem;
+}
 .utility-indicator {
   display: block;
   width: 72px;
