@@ -773,3 +773,31 @@
     rgba(9, 18, 32, 0.48);
   border: 1px solid rgba(130, 190, 255, 0.12);
 }
+.utility-desc {
+  max-width: 560px;
+}
+
+.utility-mini-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--venx-white);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.utility-mini-flow span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(10, 20, 36, 0.5);
+  border: 1px solid rgba(120, 180, 255, 0.12);
+}
+
+.utility-mini-flow span:nth-child(2),
+.utility-mini-flow span:nth-child(4),
+.utility-mini-flow span:nth-child(6) {
+  background: transparent;
+  border: none;
+  color: var(--venx-muted);
+}
