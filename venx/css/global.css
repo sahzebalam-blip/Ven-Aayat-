@@ -502,3 +502,28 @@ p {
     transform: translate3d(18px, -14px, 0) scale(1.04);
   }
 }
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(70, 120, 255, 0.025), transparent 42%),
+    radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.018), transparent 38%),
+    radial-gradient(circle at 50% 80%, rgba(60, 100, 255, 0.015), transparent 42%),
+    linear-gradient(180deg, rgba(4, 7, 19, 0.02) 0%, rgba(5, 9, 22, 0.04) 100%);
+}
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -11;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.015), transparent 30%),
+    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.012), transparent 26%),
+    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.006), transparent 28%),
+    linear-gradient(180deg, #01030a 0%, #02050f 55%, #010209 100%);
+}
