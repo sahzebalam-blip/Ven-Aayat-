@@ -88,17 +88,31 @@
         </div>
       </div>
 
-      <div class="hero-visual reveal">
-        <div class="hero-canvas-shell glass-card">
-          <canvas id="heroOrbCanvas"></canvas>
+     <div class="hero-visual reveal">
+  <div class="hero-video-shell glass-card">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="./media/venx-hero.mp4" type="video/mp4" />
+    </video>
 
-          <div class="hero-visual-overlay">
-            <div class="visual-badge">Live System Core</div>
+    <div class="hero-visual-overlay">
+      <div class="visual-badge">Live System Layer</div>
 
-            <div class="visual-panel glass-card">
-              <span class="panel-label">Status</span>
-              <strong>Operational Intelligence Layer</strong>
-            </div>
+      <div class="visual-panel glass-card">
+        <span class="panel-label">Status</span>
+        <strong>Operational Intelligence Layer</strong>
+      </div>
+    </div>
+
+    <div class="hero-ui-fog"></div>
+  </div>
+</div>
           </div>
 
           <div class="hero-ui-fog"></div>
