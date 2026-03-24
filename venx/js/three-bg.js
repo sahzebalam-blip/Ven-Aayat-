@@ -22,7 +22,6 @@ if (canvas) {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Soft atmospheric glow blobs
   const glowMaterial1 = new THREE.MeshBasicMaterial({
     color: 0x4ea1ff,
     transparent: true,
@@ -60,7 +59,6 @@ if (canvas) {
   glow3.position.set(0.4, 2.2, -4);
   scene.add(glow3);
 
-  // Particles
   const count = 1400;
   const positions = new Float32Array(count * 3);
 
@@ -84,7 +82,6 @@ if (canvas) {
   const particles = new THREE.Points(geometry, material);
   scene.add(particles);
 
-  // Very subtle signal lines
   const linePoints = [];
   for (let i = 0; i < 40; i++) {
     linePoints.push(
