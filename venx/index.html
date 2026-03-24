@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VENX — Native Intelligence Layer</title>
-  <meta
-    name="description"
-    content="VENX is the native intelligence layer of VenCrypto — a premium Web3 ecosystem interface with utility, structure, and future-ready infrastructure."
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
 
   <link rel="stylesheet" href="./css/variables.css" />
   <link rel="stylesheet" href="./css/global.css" />
@@ -22,7 +12,13 @@
   <link rel="stylesheet" href="./css/hero.css" />
   <link rel="stylesheet" href="./css/animations.css" />
 </head>
+
 <body data-page="home">
+
+  <!-- ✅ THREE.JS BACKGROUND -->
+  <canvas id="siteBgCanvas"></canvas>
+
+  <!-- EXISTING BACKGROUND -->
   <div class="site-bg">
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
@@ -246,6 +242,6 @@
   </footer>
 
   <script type="module" src="./js/main.js"></script>
-  <script type="module" src="./js/three-scene.js"></script>
+  <script type="module" src="./js/three-bg.js"></script>
 </body>
 </html>
