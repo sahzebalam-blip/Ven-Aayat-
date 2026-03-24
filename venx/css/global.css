@@ -466,3 +466,11 @@ body::before {
     radial-gradient(circle at 50% 80%, rgba(60,100,255,0.06), transparent 40%),
     linear-gradient(180deg, #040713 0%, #050916 100%);
 }
+#siteBgCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  pointer-events: none;
+}
