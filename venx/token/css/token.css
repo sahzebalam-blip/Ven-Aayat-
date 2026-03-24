@@ -756,4 +756,20 @@
     padding: 0 10px;
     font-size: 0.82rem;
   }
+}.utility-layer-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  color: rgba(220, 235, 255, 0.76);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+    rgba(9, 18, 32, 0.48);
+  border: 1px solid rgba(130, 190, 255, 0.12);
 }
