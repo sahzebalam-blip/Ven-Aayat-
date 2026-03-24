@@ -1,3 +1,7 @@
+console.log("THREE WORKING");
+
+// 👇 FORCE BACKGROUND COLOR
+scene.background = new THREE.Color(0x0a0f2a);
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js";
 
 const canvas = document.getElementById("siteBgCanvas");
