@@ -52,28 +52,53 @@ button {
   cursor: pointer;
 }
 
+/* FULL SITE THREE.JS BACKGROUND */
+#siteBgCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* SOFT OVERLAY ABOVE THREE.JS, BELOW CONTENT */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(70, 120, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(60, 100, 255, 0.06), transparent 40%),
+    linear-gradient(180deg, rgba(4, 7, 19, 0.3) 0%, rgba(5, 9, 22, 0.5) 100%);
+}
+
 .container {
   width: min(calc(100% - 32px), var(--container));
   margin-inline: auto;
 }
 
+/* STATIC DECORATIVE OVERLAY BELOW THREE.JS */
 .site-bg {
   position: fixed;
   inset: 0;
-  z-index: -5;
+  z-index: -11;
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.12), transparent 28%),
-    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.08), transparent 24%),
-    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.04), transparent 26%),
+    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.08), transparent 28%),
+    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.05), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.025), transparent 26%),
     linear-gradient(180deg, #040713 0%, #050916 55%, #040712 100%);
 }
 
 .bg-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.11;
+  opacity: 0.08;
   background-image:
     linear-gradient(rgba(116, 152, 255, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(116, 152, 255, 0.08) 1px, transparent 1px);
@@ -85,7 +110,7 @@ button {
   position: absolute;
   border-radius: 999px;
   filter: blur(100px);
-  opacity: 0.45;
+  opacity: 0.34;
 }
 
 .bg-glow-1 {
@@ -93,7 +118,7 @@ button {
   height: 380px;
   top: 9%;
   left: -6%;
-  background: rgba(46, 121, 255, 0.2);
+  background: rgba(46, 121, 255, 0.16);
   animation: floatGlow 13s ease-in-out infinite;
 }
 
@@ -102,14 +127,14 @@ button {
   height: 420px;
   right: -8%;
   bottom: 5%;
-  background: rgba(78, 161, 255, 0.16);
+  background: rgba(78, 161, 255, 0.12);
   animation: floatGlow 15s ease-in-out infinite reverse;
 }
 
 .bg-noise {
   position: absolute;
   inset: 0;
-  opacity: 0.045;
+  opacity: 0.03;
   background-image:
     radial-gradient(circle at 20% 20%, rgba(255,255,255,0.42) 0.6px, transparent 0.8px),
     radial-gradient(circle at 70% 40%, rgba(255,255,255,0.3) 0.6px, transparent 0.8px),
@@ -443,34 +468,4 @@ p {
   50% {
     transform: translate3d(18px, -14px, 0) scale(1.04);
   }
-}
-#siteBgCanvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10;
-  pointer-events: none;
-}
-
-/* Background overlay for premium depth */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -9;
-
-  background:
-    radial-gradient(circle at 20% 30%, rgba(70,120,255,0.12), transparent 40%),
-    radial-gradient(circle at 80% 20%, rgba(100,180,255,0.08), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(60,100,255,0.06), transparent 40%),
-    linear-gradient(180deg, #040713 0%, #050916 100%);
-}
-#siteBgCanvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10;
-  pointer-events: none;
 }
