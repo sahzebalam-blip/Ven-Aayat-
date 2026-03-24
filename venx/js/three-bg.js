@@ -6,12 +6,12 @@ if (canvas) {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(
-    52,
+    50,
     window.innerWidth / window.innerHeight,
     0.1,
     100
   );
-  camera.position.z = 18;
+  camera.position.z = 22;
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -21,56 +21,49 @@ if (canvas) {
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
   renderer.setClearColor(0x000000, 0);
 
-  /* --------------------------
-     Energy glow field
-  -------------------------- */
-  const glowGroup = new THREE.Group();
-  scene.add(glowGroup);
+  const isMobile = window.innerWidth < 768;
 
-  function createGlow(size, color, opacity, x, y, z) {
-    const geometry = new THREE.SphereGeometry(size, 32, 32);
-    const material = new THREE.MeshBasicMaterial({
-      color,
-      transparent: true,
-      opacity,
-      depthWrite: false,
-    });
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(x, y, z);
-    glowGroup.add(mesh);
-    return mesh;
-  }
+  /* =========================
+     CONFIG
+  ========================= */
+  const NODE_COUNT = isMobile ? 85 : 125;
+  const MAX_CONNECTIONS = isMobile ? 220 : 360;
+  const MAX_DISTANCE = isMobile ? 2.45 : 2.85;
 
-  const glowA = createGlow(4.8, 0x256dff, 0.16, -7.0, 3.5, -8);
-  const glowB = createGlow(3.7, 0x00cfff, 0.13, 7.5, -1.8, -7);
-  const glowC = createGlow(5.6, 0x1f44ff, 0.10, 0, -5.5, -10);
-  const glowD = createGlow(2.8, 0x86d8ff, 0.10, 3.8, 5.3, -6);
-
-  /* --------------------------
-     Nodes
-  -------------------------- */
-  const NODE_COUNT = window.innerWidth < 768 ? 90 : 160;
+  const nodesData = [];
   const positions = new Float32Array(NODE_COUNT * 3);
-  const basePositions = [];
-  const velocities = [];
 
+  /* =========================
+     NODES
+  ========================= */
   for (let i = 0; i < NODE_COUNT; i++) {
-    const x = (Math.random() - 0.5) * 30;
-    const y = (Math.random() - 0.5) * 18;
-    const z = (Math.random() - 0.5) * 8;
+    const spreadX = 30;
+    const spreadY = 18;
+    const spreadZ = 10;
+
+    const x = (Math.random() - 0.5) * spreadX;
+    const y = (Math.random() - 0.5) * spreadY;
+    const z = (Math.random() - 0.5) * spreadZ;
 
     positions[i * 3] = x;
     positions[i * 3 + 1] = y;
     positions[i * 3 + 2] = z;
 
-    basePositions.push({ x, y, z });
-    velocities.push({
-      x: (Math.random() - 0.5) * 0.004,
-      y: (Math.random() - 0.5) * 0.004,
-      z: (Math.random() - 0.5) * 0.0015,
+    nodesData.push({
+      baseX: x,
+      baseY: y,
+      baseZ: z,
+      x,
+      y,
+      z,
+      vx: (Math.random() - 0.5) * 0.010,
+      vy: (Math.random() - 0.5) * 0.010,
+      vz: (Math.random() - 0.5) * 0.003,
+      phase: Math.random() * Math.PI * 2,
+      amp: 0.18 + Math.random() * 0.35,
     });
   }
 
@@ -78,31 +71,34 @@ if (canvas) {
   nodeGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   const nodeMaterial = new THREE.PointsMaterial({
-    color: 0x9ad7ff,
-    size: window.innerWidth < 768 ? 0.07 : 0.085,
+    color: 0x9fd6ff,
+    size: isMobile ? 0.07 : 0.08,
     transparent: true,
     opacity: 0.95,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
+    sizeAttenuation: true,
   });
 
   const points = new THREE.Points(nodeGeometry, nodeMaterial);
   scene.add(points);
 
-  /* --------------------------
-     Lines
-  -------------------------- */
-  const maxConnections = 700;
-  const linePositions = new Float32Array(maxConnections * 6);
+  /* =========================
+     LINES
+  ========================= */
+  const linePositions = new Float32Array(MAX_CONNECTIONS * 6);
 
   const lineGeometry = new THREE.BufferGeometry();
-  lineGeometry.setAttribute("position", new THREE.BufferAttribute(linePositions, 3));
+  lineGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(linePositions, 3)
+  );
   lineGeometry.setDrawRange(0, 0);
 
   const lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x62b2ff,
+    color: 0x5aaeff,
     transparent: true,
-    opacity: 0.20,
+    opacity: 0.16,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
   });
@@ -110,94 +106,122 @@ if (canvas) {
   const lineSegments = new THREE.LineSegments(lineGeometry, lineMaterial);
   scene.add(lineSegments);
 
-  /* --------------------------
-     Mouse parallax
-  -------------------------- */
-  const mouse = { x: 0, y: 0 };
+  /* =========================
+     SOFT DEPTH PARTICLES
+     (no circles, just faint dust)
+  ========================= */
+  const dustCount = isMobile ? 70 : 120;
+  const dustPositions = new Float32Array(dustCount * 3);
 
-  window.addEventListener("pointermove", (e) => {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-  });
-
-  /* --------------------------
-     Resize
-  -------------------------- */
-  function handleResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
-    nodeMaterial.size = window.innerWidth < 768 ? 0.07 : 0.085;
+  for (let i = 0; i < dustCount; i++) {
+    dustPositions[i * 3] = (Math.random() - 0.5) * 42;
+    dustPositions[i * 3 + 1] = (Math.random() - 0.5) * 24;
+    dustPositions[i * 3 + 2] = (Math.random() - 0.5) * 22 - 8;
   }
 
-  window.addEventListener("resize", handleResize);
+  const dustGeometry = new THREE.BufferGeometry();
+  dustGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(dustPositions, 3)
+  );
 
-  /* --------------------------
-     Animation
-  -------------------------- */
+  const dustMaterial = new THREE.PointsMaterial({
+    color: 0x6fbfff,
+    size: isMobile ? 0.03 : 0.04,
+    transparent: true,
+    opacity: 0.18,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const dust = new THREE.Points(dustGeometry, dustMaterial);
+  scene.add(dust);
+
+  /* =========================
+     MOUSE PARALLAX
+  ========================= */
+  const pointer = { x: 0, y: 0 };
+
+  window.addEventListener("pointermove", (e) => {
+    pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+    pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  /* =========================
+     RESIZE
+  ========================= */
+  function onResize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+  }
+
+  window.addEventListener("resize", onResize);
+
+  /* =========================
+     ANIMATION
+  ========================= */
   const clock = new THREE.Clock();
 
   function animate() {
     requestAnimationFrame(animate);
 
     const time = clock.getElapsedTime();
-    const pos = nodeGeometry.attributes.position.array;
+    const posArray = nodeGeometry.attributes.position.array;
 
-    glowA.position.x = -7 + Math.sin(time * 0.24) * 1.2;
-    glowA.position.y = 3.5 + Math.cos(time * 0.22) * 0.7;
-
-    glowB.position.x = 7.5 + Math.cos(time * 0.20) * 1.1;
-    glowB.position.y = -1.8 + Math.sin(time * 0.28) * 0.7;
-
-    glowC.position.x = Math.sin(time * 0.16) * 1.5;
-    glowC.position.y = -5.5 + Math.cos(time * 0.18) * 0.65;
-
-    glowD.position.x = 3.8 + Math.sin(time * 0.33) * 0.85;
-    glowD.position.y = 5.3 + Math.cos(time * 0.31) * 0.5;
-
-    glowGroup.rotation.z = Math.sin(time * 0.05) * 0.06;
-
+    // Node movement
     for (let i = 0; i < NODE_COUNT; i++) {
+      const n = nodesData[i];
       const idx = i * 3;
-      const base = basePositions[i];
-      const vel = velocities[i];
 
-      pos[idx] += vel.x;
-      pos[idx + 1] += vel.y;
-      pos[idx + 2] += vel.z;
+      n.x += n.vx;
+      n.y += n.vy;
+      n.z += n.vz;
 
-      if (pos[idx] > base.x + 2.5 || pos[idx] < base.x - 2.5) vel.x *= -1;
-      if (pos[idx + 1] > base.y + 2.0 || pos[idx + 1] < base.y - 2.0) vel.y *= -1;
-      if (pos[idx + 2] > base.z + 1.0 || pos[idx + 2] < base.z - 1.0) vel.z *= -1;
+      // soft bounds around base positions
+      if (n.x > n.baseX + 2.8 || n.x < n.baseX - 2.8) n.vx *= -1;
+      if (n.y > n.baseY + 2.2 || n.y < n.baseY - 2.2) n.vy *= -1;
+      if (n.z > n.baseZ + 1.2 || n.z < n.baseZ - 1.2) n.vz *= -1;
 
-      pos[idx + 1] += Math.sin(time * 0.6 + i * 0.35) * 0.0012;
+      // wave-like energy motion
+      const waveX = Math.sin(time * 0.22 + n.phase) * 0.06 * n.amp;
+      const waveY = Math.cos(time * 0.48 + n.phase * 1.3) * 0.11 * n.amp;
+      const waveZ = Math.sin(time * 0.30 + n.phase * 0.8) * 0.04 * n.amp;
+
+      posArray[idx] = n.x + waveX;
+      posArray[idx + 1] = n.y + waveY;
+      posArray[idx + 2] = n.z + waveZ;
     }
 
     nodeGeometry.attributes.position.needsUpdate = true;
 
-    let connectionCount = 0;
+    // Build smart connection lines
     let lineIndex = 0;
-    const maxDistance = window.innerWidth < 768 ? 2.5 : 2.9;
+    let connectionCount = 0;
 
     for (let a = 0; a < NODE_COUNT; a++) {
+      const ax = posArray[a * 3];
+      const ay = posArray[a * 3 + 1];
+      const az = posArray[a * 3 + 2];
+
       for (let b = a + 1; b < NODE_COUNT; b++) {
-        if (connectionCount >= maxConnections) break;
+        if (connectionCount >= MAX_CONNECTIONS) break;
 
-        const ax = pos[a * 3];
-        const ay = pos[a * 3 + 1];
-        const az = pos[a * 3 + 2];
-
-        const bx = pos[b * 3];
-        const by = pos[b * 3 + 1];
-        const bz = pos[b * 3 + 2];
+        const bx = posArray[b * 3];
+        const by = posArray[b * 3 + 1];
+        const bz = posArray[b * 3 + 2];
 
         const dx = ax - bx;
         const dy = ay - by;
         const dz = az - bz;
-        const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-        if (distance < maxDistance) {
+        if (dist < MAX_DISTANCE) {
           linePositions[lineIndex++] = ax;
           linePositions[lineIndex++] = ay;
           linePositions[lineIndex++] = az;
@@ -214,15 +238,20 @@ if (canvas) {
     lineGeometry.setDrawRange(0, connectionCount * 2);
     lineGeometry.attributes.position.needsUpdate = true;
 
-    camera.position.x += (mouse.x * 1.15 - camera.position.x) * 0.025;
-    camera.position.y += (mouse.y * 0.85 - camera.position.y) * 0.025;
-    camera.lookAt(0, 0, 0);
-
-    points.rotation.y = Math.sin(time * 0.12) * 0.05;
-    points.rotation.x = Math.cos(time * 0.10) * 0.025;
+    // scene drift
+    points.rotation.y = Math.sin(time * 0.10) * 0.06;
+    points.rotation.x = Math.cos(time * 0.08) * 0.025;
 
     lineSegments.rotation.y = points.rotation.y;
     lineSegments.rotation.x = points.rotation.x;
+
+    dust.rotation.y = -time * 0.01;
+    dust.rotation.x = Math.sin(time * 0.05) * 0.02;
+
+    // mouse depth
+    camera.position.x += (pointer.x * 1.4 - camera.position.x) * 0.022;
+    camera.position.y += (pointer.y * 0.9 - camera.position.y) * 0.022;
+    camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);
   }
