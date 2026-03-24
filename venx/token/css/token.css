@@ -9,7 +9,7 @@
 
 .token-title {
   max-width: 11ch;
-  margin-bottom: 18px;
+  margin: 0 0 18px;
   line-height: 0.95;
 }
 
@@ -242,16 +242,17 @@
 }
 
 .utility-layer {
-  padding: 20px 22px;
+  position: relative;
+  padding: 20px 22px 22px;
   transform: translateY(0);
-  transition: transform 320ms ease, box-shadow 320ms ease;
+  transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
 }
 
 .utility-layer:hover {
   transform: translateY(-6px);
 }
 
-.utility-layer span {
+.utility-layer > span:first-child {
   display: block;
   margin-bottom: 6px;
   color: var(--venx-muted);
@@ -263,12 +264,47 @@
 .utility-layer strong {
   display: block;
   margin-bottom: 8px;
+  color: var(--venx-white);
+}
+
+.utility-layer p {
+  margin: 0;
+}
+
+.utility-indicator {
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(78, 161, 255, 0.86),
+    rgba(214, 179, 106, 0.64)
+  );
+  box-shadow:
+    0 0 16px rgba(78, 161, 255, 0.22),
+    0 0 24px rgba(214, 179, 106, 0.10);
 }
 
 .utility-layer-1 { margin-left: 0; }
 .utility-layer-2 { margin-left: 16px; }
 .utility-layer-3 { margin-left: 32px; }
 .utility-layer-4 { margin-left: 48px; }
+
+.tokenomics-note {
+  margin: 0 0 22px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  color: var(--venx-text);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+    rgba(8, 16, 30, 0.5);
+  border: 1px solid rgba(130, 190, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 24px rgba(78, 161, 255, 0.04);
+}
 
 .tokenomics-layout {
   display: grid;
@@ -335,6 +371,14 @@
   font-size: 1.12rem;
 }
 
+.tokenomics-item h3 {
+  margin: 0 0 4px;
+}
+
+.tokenomics-item p {
+  margin: 0;
+}
+
 .alloc-dot {
   width: 14px;
   height: 14px;
@@ -355,7 +399,48 @@
   grid-template-columns: 1fr 0.9fr;
   gap: 26px;
   align-items: center;
-  padding: 28px;
+  padding: 30px;
+}
+
+.pool-copy h2 {
+  margin: 0 0 12px;
+}
+
+.pool-copy > p:first-of-type {
+  margin: 0 0 16px;
+  max-width: 640px;
+}
+
+.pool-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: var(--venx-white);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.pool-flow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)),
+    rgba(9, 18, 32, 0.48);
+  border: 1px solid rgba(130, 190, 255, 0.12);
+}
+
+.pool-flow span:nth-child(2),
+.pool-flow span:nth-child(4),
+.pool-flow span:nth-child(6) {
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  color: rgba(188, 214, 255, 0.64);
 }
 
 .pool-highlight {
@@ -377,17 +462,27 @@
   animation: venxTokenShift 5s linear infinite;
 }
 
-.pool-subnote {
+.pool-subnote,
+.pool-disclaimer {
   color: var(--venx-muted);
   font-size: 0.92rem;
   max-width: 640px;
+}
+
+.pool-subnote {
+  margin: 0 0 10px;
+}
+
+.pool-disclaimer {
+  margin: 0;
+  line-height: 1.7;
 }
 
 .pool-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .pool-visual {
@@ -402,6 +497,15 @@
   box-shadow:
     inset 0 0 28px rgba(78, 161, 255, 0.06),
     0 0 32px rgba(78, 161, 255, 0.08);
+}
+
+.pool-visual::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(132, 192, 255, 0.08);
+  pointer-events: none;
 }
 
 .pool-node-grid {
@@ -499,6 +603,29 @@
   padding: 24px;
 }
 
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 28px;
+}
+
+.cta-card h2 {
+  margin: 0 0 10px;
+}
+
+.cta-card p {
+  margin: 0;
+  max-width: 640px;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 @keyframes venxTokenShift {
   0% { background-position: 0% center; }
   100% { background-position: 220% center; }
@@ -536,7 +663,8 @@
   .network-grid,
   .logic-grid,
   .flow-grid,
-  .pool-section {
+  .pool-section,
+  .cta-card {
     grid-template-columns: 1fr;
   }
 
@@ -568,6 +696,10 @@
   .utility-layer-4 {
     margin-left: 0;
   }
+
+  .cta-card {
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 780px) {
@@ -582,5 +714,46 @@
 
   .pool-visual {
     min-height: 260px;
+  }
+
+  .flow-shell,
+  .business-logic,
+  .pool-section,
+  .cta-card {
+    padding: 22px;
+  }
+
+  .tokenomics-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .tokenomics-item strong {
+    grid-column: 2 / 3;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .token-actions,
+  .pool-actions,
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .token-actions .btn,
+  .pool-actions .btn,
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  .pool-flow {
+    gap: 8px;
+  }
+
+  .pool-flow span {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.82rem;
   }
 }
