@@ -163,3 +163,38 @@ body.nav-open .nav-toggle span:last-child {
     text-align: left;
   }
 }
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 25%),
+    linear-gradient(135deg, #4ea1ff, #1036a7);
+  box-shadow:
+    0 0 18px rgba(78,161,255,0.5),
+    inset 0 0 10px rgba(255,255,255,0.15);
+}
+
+.brand-text {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.nav-cta {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4ea1ff, #d6b36a);
+  color: #000;
+  font-weight: 700;
+  margin-left: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(78,161,255,0.3);
+}
