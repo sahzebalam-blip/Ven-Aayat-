@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VENX Token — Utility & Tokenomics</title>
-  <meta name="description" content="Explore VENX token utility, allocation logic, and interactive 3D tokenomics under the VenCrypto ecosystem." />
+  <title>VENX Token — Utility, Access & Execution</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../../assets/css/variables.css" />
-  <link rel="stylesheet" href="../../assets/css/global.css" />
-  <link rel="stylesheet" href="../../assets/css/navbar.css" />
-  <link rel="stylesheet" href="../../assets/css/hero.css" />
-  <link rel="stylesheet" href="../../assets/css/animations.css" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/shared.css" />
+  <link rel="stylesheet" href="../css/token.css" />
 </head>
 <body data-page="token">
+  <canvas id="siteBgCanvas"></canvas>
+
   <div class="site-bg">
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
@@ -26,7 +24,7 @@
 
   <header class="site-header">
     <nav class="navbar container">
-      <a href="../../index.html" class="brand">
+      <a href="../index.html" class="brand">
         <span class="brand-mark"></span>
         <span class="brand-text">VENX</span>
       </a>
@@ -36,146 +34,375 @@
         <span></span>
       </button>
 
-     
       <div class="nav-menu">
-  <a href="../index.html" class="nav-link">Home</a>
-  <a href="./index.html" class="nav-link active">Token</a>
-  <a href="../whitepaper/index.html" class="nav-link">Whitepaper</a>
-</div>
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="./index.html" class="nav-link active">Token</a>
+        <a href="../whitepaper/index.html" class="nav-link">Whitepaper</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section class="page-hero container">
-      <div class="page-hero-copy reveal">
-        <div class="eyebrow">VENX Token Layer</div>
-        <h1>Utility-first token architecture for a broader digital ecosystem.</h1>
-        <p>
-          VENX is positioned as a native ecosystem token layer designed to support
-          internal utility, participation, identity, and long-term expansion across
-          VenCrypto-led infrastructure.
+    <!-- HERO -->
+    <section class="token-hero container">
+      <div class="token-hero-copy reveal">
+        <div class="eyebrow">VENX Token Architecture</div>
+
+        <h1 class="token-title">
+          VENX Token
+          <span class="token-title-line">
+            Utility. Access. Execution.
+          </span>
+        </h1>
+
+        <p class="token-text">
+          VENX is the utility-driven token layer inside the wider Ven Aayat ecosystem.
+          It is designed to support access, internal participation, ecosystem actions,
+          and future smart contract-linked execution across connected system layers.
         </p>
+
+        <div class="token-actions">
+          <a href="../whitepaper/index.html" class="btn btn-primary">Read Whitepaper</a>
+          <a href="#tokenomics" class="btn btn-secondary">View Tokenomics</a>
+        </div>
+
+        <div class="token-hero-points">
+          <div class="token-point glass-card reveal">
+            <strong>Utility Layer</strong>
+            <span>Used inside the system, not built around empty hype.</span>
+          </div>
+
+          <div class="token-point glass-card reveal">
+            <strong>Access Layer</strong>
+            <span>Supports feature unlocks, participation, and ecosystem pathways.</span>
+          </div>
+
+          <div class="token-point glass-card reveal">
+            <strong>Execution Layer</strong>
+            <span>Structured to evolve with smart contract-driven logic over time.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="token-hero-visual reveal">
+        <div class="token-core-shell glass-card">
+          <canvas id="tokenCoreCanvas"></canvas>
+
+          <div class="token-core-overlay">
+            <div class="core-chip">VENX Core</div>
+
+            <div class="core-status glass-card">
+              <span>Layer Status</span>
+              <strong>Intelligence • Utility • Execution</strong>
+            </div>
+          </div>
+
+          <div class="token-core-fog"></div>
+        </div>
       </div>
     </section>
 
+    <!-- SIMPLE EXPLAIN -->
     <section class="section container">
       <div class="section-heading reveal">
-        <div class="eyebrow">What is VENX</div>
-        <h2>More than presence. Built for purpose.</h2>
+        <div class="eyebrow">What VENX Does</div>
+        <h2>Simple role. Serious system.</h2>
         <p>
-          VENX is designed to operate as a structured utility asset within the wider
-          VenCrypto ecosystem, supporting future access models, internal services,
-          platform layers, and ecosystem interaction.
+          VENX is not presented as a decorative asset. It is designed to function
+          inside the ecosystem as an access, utility, and execution-linked token layer.
         </p>
       </div>
 
-      <div class="cards-grid cards-3">
-        <article class="glass-card reveal">
-          <h3>Internal Utility</h3>
-          <p>Supports ecosystem-linked functions, service access, and future product integrations.</p>
+      <div class="token-simple-grid">
+        <article class="glass-card simple-card reveal">
+          <div class="simple-icon"></div>
+          <h3>Access Key</h3>
+          <p>
+            VENX can support access to ecosystem-linked services, premium system layers,
+            future member pathways, and controlled internal features.
+          </p>
         </article>
-        <article class="glass-card reveal">
-          <h3>Ecosystem Identity</h3>
-          <p>Acts as a unified native layer connecting exchange, education, and future infrastructure.</p>
+
+        <article class="glass-card simple-card reveal">
+          <div class="simple-icon"></div>
+          <h3>System Utility</h3>
+          <p>
+            It is built to hold relevance through use inside the ecosystem, not through
+            noise alone. Utility is where long-term strength starts.
+          </p>
         </article>
-        <article class="glass-card reveal">
-          <h3>Expandable Structure</h3>
-          <p>Designed with future modules, smart services, and internal value routing in mind.</p>
+
+        <article class="glass-card simple-card reveal">
+          <div class="simple-icon"></div>
+          <h3>Execution Bridge</h3>
+          <p>
+            VENX is positioned to connect traditional infrastructure, Web3 logic,
+            and future smart contract-driven action layers.
+          </p>
         </article>
       </div>
     </section>
 
+    <!-- FLOW -->
     <section class="section container">
       <div class="section-heading reveal">
-        <div class="eyebrow">Token Utility</div>
-        <h2>Planned ecosystem-aligned use cases</h2>
-        <p>
-          The role of VENX is intended to be practical and system-connected. Utility
-          can expand with product rollout and ecosystem maturity.
-        </p>
+        <div class="eyebrow">How It Works</div>
+        <h2>From user action to system execution.</h2>
       </div>
 
-      <div class="cards-grid cards-2">
-        <article class="glass-card utility-card reveal">
-          <h3>Access & Participation</h3>
-          <p>Future access layer for selected services, ecosystem activations, and platform-linked participation mechanisms.</p>
-        </article>
+      <div class="flow-shell glass-card reveal">
+        <div class="flow-line"></div>
+        <div class="flow-dot flow-dot-1"></div>
+        <div class="flow-dot flow-dot-2"></div>
+        <div class="flow-dot flow-dot-3"></div>
+        <div class="flow-dot flow-dot-4"></div>
 
-        <article class="glass-card utility-card reveal">
-          <h3>Internal Ecosystem Use</h3>
-          <p>Can support fee logic, platform-linked benefits, educational access, internal reward structures, or product utility pathways.</p>
-        </article>
+        <div class="flow-grid">
+          <div class="flow-step">
+            <span class="flow-step-label">01</span>
+            <strong>User</strong>
+            <p>Enters the ecosystem through platform interaction.</p>
+          </div>
 
-        <article class="glass-card utility-card reveal">
-          <h3>Community & Growth Layer</h3>
-          <p>Can serve as a bridge between ecosystem awareness, adoption activity, and future service-linked incentives.</p>
-        </article>
+          <div class="flow-step">
+            <span class="flow-step-label">02</span>
+            <strong>Platform</strong>
+            <p>Routes access, utility logic, and ecosystem context.</p>
+          </div>
 
-        <article class="glass-card utility-card reveal">
-          <h3>Long-Term System Expansion</h3>
-          <p>Prepared for deeper utility integration across future products, smart contracts, platform modules, and support layers.</p>
-        </article>
+          <div class="flow-step">
+            <span class="flow-step-label">03</span>
+            <strong>VENX</strong>
+            <p>Acts as the connected utility and participation layer.</p>
+          </div>
+
+          <div class="flow-step">
+            <span class="flow-step-label">04</span>
+            <strong>Execution</strong>
+            <p>Supports future actions, smart interactions, and system expansion.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section container tokenomics-section">
+    <!-- UTILITY STACK -->
+    <section class="section container">
+      <div class="split-layout token-stack-layout">
+        <div class="split-copy reveal">
+          <div class="eyebrow">Utility Stack</div>
+          <h2>Four layers of token relevance.</h2>
+          <p>
+            VENX is designed to expand through structured roles inside the ecosystem,
+            starting from access and utility, and moving toward execution-linked logic.
+          </p>
+        </div>
+
+        <div class="utility-stack reveal">
+          <div class="glass-card utility-layer utility-layer-1">
+            <span>Layer 1</span>
+            <strong>Access</strong>
+            <p>Entry points, feature availability, and internal system gateways.</p>
+          </div>
+
+          <div class="glass-card utility-layer utility-layer-2">
+            <span>Layer 2</span>
+            <strong>Utility</strong>
+            <p>Ecosystem use cases, service pathways, and functional relevance.</p>
+          </div>
+
+          <div class="glass-card utility-layer utility-layer-3">
+            <span>Layer 3</span>
+            <strong>Participation</strong>
+            <p>Broader user involvement through connected ecosystem logic.</p>
+          </div>
+
+          <div class="glass-card utility-layer utility-layer-4">
+            <span>Layer 4</span>
+            <strong>Execution</strong>
+            <p>Future smart contract interactions and native system-linked actions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section id="tokenomics" class="section container">
       <div class="section-heading reveal">
-        <div class="eyebrow">3D Tokenomics</div>
-        <h2>Floating allocation blocks around the VENX core</h2>
+        <div class="eyebrow">Tokenomics</div>
+        <h2>Structured allocation. Clear direction.</h2>
         <p>
-          This visualization presents the VENX allocation system through floating 3D
-          modules orbiting a central intelligence core.
+          The VENX tokenomics model is designed to support liquidity, ecosystem growth,
+          development, operations, and long-term expansion in a structured way.
         </p>
       </div>
 
       <div class="tokenomics-layout">
-        <div class="tokenomics-canvas-wrap glass-card reveal">
-          <canvas id="tokenomicsCanvas"></canvas>
-          <div class="tokenomics-overlay">
-            <div class="overlay-badge">3D Allocation System</div>
+        <div class="glass-card tokenomics-core reveal">
+          <div class="ring-wrap">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+            <div class="ring-center">
+              <span>Total Supply</span>
+              <strong>100%</strong>
+            </div>
           </div>
         </div>
 
-        <aside class="tokenomics-info glass-card reveal">
-          <div class="token-info-head">
-            <span class="eyebrow small">Selected Allocation</span>
-            <h3 id="tokenomicsTitle">Liquidity</h3>
-          </div>
+        <div class="tokenomics-grid">
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-liquidity"></span>
+            <div>
+              <h3>Liquidity</h3>
+              <p>Initial trading stability and ecosystem market structure.</p>
+            </div>
+            <strong>20%</strong>
+          </article>
 
-          <div class="token-info-stat">
-            <span>Allocation</span>
-            <strong id="tokenomicsPercent">30%</strong>
-          </div>
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-ecosystem"></span>
+            <div>
+              <h3>Ecosystem</h3>
+              <p>Growth, ecosystem use, incentives, and long-term participation.</p>
+            </div>
+            <strong>25%</strong>
+          </article>
 
-          <p id="tokenomicsDescription">
-            Supports market depth, smoother ecosystem movement, and foundational token availability.
-          </p>
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-dev"></span>
+            <div>
+              <h3>Development</h3>
+              <p>Product building, infrastructure, technology, and upgrades.</p>
+            </div>
+            <strong>15%</strong>
+          </article>
 
-          <div class="tokenomics-list">
-            <button class="tokenomics-item active" data-name="Liquidity" data-percent="30%" data-description="Supports market depth, smoother ecosystem movement, and foundational token availability.">Liquidity</button>
-            <button class="tokenomics-item" data-name="Ecosystem" data-percent="20%" data-description="Drives ecosystem growth, expansion initiatives, and future system-linked opportunities.">Ecosystem</button>
-            <button class="tokenomics-item" data-name="Development" data-percent="15%" data-description="Supports product building, engineering refinement, technical upgrades, and infrastructure work.">Development</button>
-            <button class="tokenomics-item" data-name="Marketing" data-percent="10%" data-description="Used for brand visibility, ecosystem communication, and structured awareness campaigns.">Marketing</button>
-            <button class="tokenomics-item" data-name="Academy" data-percent="5%" data-description="Reserved for learning systems, education initiatives, and ecosystem onboarding support.">Academy</button>
-            <button class="tokenomics-item" data-name="Admin" data-percent="15%" data-description="Operational support allocation for administration, execution handling, and ecosystem management layers.">Admin</button>
-            <button class="tokenomics-item" data-name="Reserve" data-percent="5%" data-description="Strategic reserve layer for future flexibility, support needs, and expansion planning.">Reserve</button>
-          </div>
-        </aside>
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-marketing"></span>
+            <div>
+              <h3>Marketing</h3>
+              <p>Awareness, ecosystem reach, launch expansion, and positioning.</p>
+            </div>
+            <strong>10%</strong>
+          </article>
+
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-academy"></span>
+            <div>
+              <h3>Academy</h3>
+              <p>Education, onboarding, and user understanding systems.</p>
+            </div>
+            <strong>5%</strong>
+          </article>
+
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-admin"></span>
+            <div>
+              <h3>Admin / Operations</h3>
+              <p>Operational continuity, management, and ecosystem support.</p>
+            </div>
+            <strong>15%</strong>
+          </article>
+
+          <article class="glass-card tokenomics-item reveal">
+            <span class="alloc-dot alloc-reserve"></span>
+            <div>
+              <h3>Reserve</h3>
+              <p>Strategic long-term flexibility and future system stability.</p>
+            </div>
+            <strong>10%</strong>
+          </article>
+        </div>
       </div>
     </section>
 
+    <!-- BUSINESS LOGIC -->
     <section class="section container">
-      <div class="glass-card cta-card reveal">
-        <div>
-          <div class="eyebrow">Next Read</div>
-          <h2>Understand the broader whitepaper direction.</h2>
+      <div class="business-logic glass-card reveal">
+        <div class="section-heading logic-heading">
+          <div class="eyebrow">Business Logic</div>
+          <h2>Usage creates relevance.</h2>
           <p>
-            Explore the vision, problem, solution architecture, and long-term VENX ecosystem roadmap.
+            VENX is not positioned around guaranteed outcomes. Its relevance grows
+            through ecosystem use, internal utility, broader participation, and
+            expanding system activity.
           </p>
         </div>
+
+        <div class="logic-grid">
+          <div class="logic-card">
+            <strong>More utility</strong>
+            <span>creates more reason to use the token inside the system.</span>
+          </div>
+          <div class="logic-card">
+            <strong>More activity</strong>
+            <span>increases internal movement and ecosystem interaction.</span>
+          </div>
+          <div class="logic-card">
+            <strong>More ecosystem growth</strong>
+            <span>expands the token’s relevance across connected layers.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM CONNECTION -->
+    <section class="section container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Connected Layers</div>
+        <h2>One token. Multiple system pathways.</h2>
+      </div>
+
+      <div class="network-grid">
+        <article class="glass-card network-card reveal">
+          <h3>Exchange Infrastructure</h3>
+          <p>Supports ecosystem-linked operational and platform utility direction.</p>
+        </article>
+
+        <article class="glass-card network-card reveal">
+          <h3>Academy Layer</h3>
+          <p>Connects onboarding, education, and future knowledge-led participation.</p>
+        </article>
+
+        <article class="glass-card network-card reveal">
+          <h3>Web Infrastructure</h3>
+          <p>Acts as part of the bridge from traditional systems toward Web3 execution.</p>
+        </article>
+
+        <article class="glass-card network-card reveal">
+          <h3>Future Smart Contracts</h3>
+          <p>Designed to evolve toward structured smart contract-based utility layers.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEGAL SAFE -->
+    <section class="section container">
+      <div class="legal-note glass-card reveal">
+        <div class="eyebrow">Important Note</div>
+        <p>
+          VENX is presented as a utility-driven ecosystem layer. It is not described
+          as a guaranteed return asset. Long-term relevance depends on ecosystem usage,
+          system growth, execution quality, and adoption.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section container cta-section">
+      <div class="glass-card cta-card reveal">
+        <div>
+          <div class="eyebrow">Next Layer</div>
+          <h2>Read the broader VENX system vision.</h2>
+          <p>
+            Move into the whitepaper direction to understand infrastructure, execution,
+            and ecosystem expansion in one aligned view.
+          </p>
+        </div>
+
         <div class="cta-actions">
           <a href="../whitepaper/index.html" class="btn btn-primary">Open Whitepaper</a>
-          <a href="../../index.html" class="btn btn-secondary">Back Home</a>
+          <a href="../index.html" class="btn btn-secondary">Back to Home</a>
         </div>
       </div>
     </section>
@@ -184,12 +411,13 @@
   <footer class="site-footer container">
     <div class="footer-line"></div>
     <div class="footer-row">
-      <span>© 2026 VENX / VenCrypto</span>
-      <span>Utility-led ecosystem architecture</span>
+      <span>© 2026 VENX / Ven Aayat</span>
+      <span>Utility • Infrastructure • Execution</span>
     </div>
   </footer>
 
-  <script type="module" src="../../assets/js/main.js"></script>
-  <script type="module" src="../../assets/js/three-scene.js"></script>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/three-bg.js"></script>
+  <script type="module" src="../js/token-core.js"></script>
 </body>
 </html>
