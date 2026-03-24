@@ -1,0 +1,259 @@
+:root {
+  --venx-bg: #03060d;
+  --venx-bg-2: #07111f;
+  --venx-line: rgba(95, 170, 255, 0.16);
+  --venx-node: rgba(119, 188, 255, 0.9);
+  --venx-glow: rgba(58, 140, 255, 0.22);
+  --venx-glow-2: rgba(0, 212, 255, 0.14);
+  --venx-white: rgba(255, 255, 255, 0.92);
+  --venx-text: rgba(235, 242, 255, 0.86);
+  --venx-muted: rgba(210, 222, 245, 0.64);
+  --venx-border: rgba(255, 255, 255, 0.11);
+  --venx-border-strong: rgba(120, 180, 255, 0.24);
+  --venx-card: rgba(10, 18, 32, 0.48);
+  --venx-card-2: rgba(8, 15, 28, 0.62);
+  --venx-shadow: 0 10px 40px rgba(0, 0, 0, 0.34);
+  --venx-blur: blur(18px);
+  --venx-radius: 22px;
+  --venx-radius-sm: 16px;
+  --venx-transition: 320ms ease;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(17, 35, 68, 0.22), transparent 34%),
+    radial-gradient(circle at 80% 20%, rgba(0, 163, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, var(--venx-bg), #040913 48%, #03060d 100%);
+  color: var(--venx-text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Full page background */
+.venx-bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#venxBgCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.venx-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(66, 139, 255, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 22%, rgba(0, 195, 255, 0.09), transparent 18%),
+    radial-gradient(circle at 50% 78%, rgba(40, 108, 255, 0.1), transparent 30%),
+    linear-gradient(to bottom, rgba(2, 6, 14, 0.25), rgba(2, 6, 14, 0.42));
+  mix-blend-mode: screen;
+  opacity: 1;
+}
+
+/* Main content must sit above canvas */
+.site-shell,
+header,
+main,
+footer,
+section,
+nav {
+  position: relative;
+  z-index: 2;
+}
+
+/* Container suggestion */
+.container,
+.section-container,
+.nav-container,
+.hero-container {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+/* Premium glass surfaces */
+.glass,
+.glass-card,
+.glass-panel,
+.glass-nav,
+.glass-btn {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    linear-gradient(180deg, var(--venx-card), var(--venx-card-2));
+  border: 1px solid var(--venx-border);
+  backdrop-filter: var(--venx-blur);
+  -webkit-backdrop-filter: var(--venx-blur);
+  box-shadow: var(--venx-shadow);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Shiny moving reflection */
+.glass-card::before,
+.glass-panel::before,
+.glass-nav::before,
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -40%;
+  width: 48%;
+  height: 280%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: rotate(18deg);
+  transition: transform 0.8s ease, left 0.8s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before,
+.glass-panel:hover::before,
+.glass-nav:hover::before,
+.glass-btn:hover::before {
+  left: 118%;
+}
+
+/* Inner glow */
+.glass-card::after,
+.glass-panel::after,
+.glass-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 34px rgba(97, 174, 255, 0.045),
+    0 0 30px rgba(47, 128, 255, 0.06);
+  pointer-events: none;
+}
+
+/* Navbar */
+.glass-nav {
+  border-radius: 999px;
+  padding: 14px 22px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015)),
+    rgba(7, 14, 26, 0.62);
+  border: 1px solid rgba(145, 191, 255, 0.14);
+}
+
+/* Cards */
+.glass-card,
+.glass-panel {
+  border-radius: var(--venx-radius);
+  transition:
+    transform var(--venx-transition),
+    border-color var(--venx-transition),
+    box-shadow var(--venx-transition),
+    background var(--venx-transition);
+}
+
+.glass-card:hover,
+.glass-panel:hover {
+  transform: translateY(-6px);
+  border-color: var(--venx-border-strong);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(91, 158, 255, 0.06),
+    0 0 40px rgba(52, 136, 255, 0.12);
+}
+
+/* Buttons */
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 189, 255, 0.18);
+  color: var(--venx-white);
+  text-decoration: none;
+  transition:
+    transform var(--venx-transition),
+    box-shadow var(--venx-transition),
+    border-color var(--venx-transition),
+    background var(--venx-transition);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(10, 20, 36, 0.54);
+}
+
+.glass-btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(130, 194, 255, 0.28);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(56, 142, 255, 0.18);
+}
+
+/* Typography helpers */
+h1, h2, h3, h4 {
+  color: var(--venx-white);
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--venx-muted);
+}
+
+/* Section spacing */
+section {
+  position: relative;
+  padding: 90px 0;
+}
+
+/* Hero optional */
+.hero,
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Border glow utility */
+.glow-border {
+  border: 1px solid rgba(125, 181, 255, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.02),
+    0 0 24px rgba(58, 138, 255, 0.08);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  section {
+    padding: 72px 0;
+  }
+
+  .glass-nav {
+    border-radius: 20px;
+    padding: 12px 16px;
+  }
+
+  .glass-card,
+  .glass-panel {
+    border-radius: 18px;
+  }
+}
