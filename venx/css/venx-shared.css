@@ -257,3 +257,240 @@ section {
     border-radius: 18px;
   }
 }
+/* ===== VENX GLOBAL BACKGROUND LAYER ===== */
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(55, 120, 255, 0.10), transparent 24%),
+    radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.08), transparent 20%),
+    linear-gradient(180deg, #030816 0%, #050b18 48%, #030714 100%);
+}
+
+/* Three canvas */
+#siteBgCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* CSS ambient layer above canvas, below content */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(100, 170, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 170, 255, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+}
+
+.bg-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.5;
+}
+
+.bg-glow-1 {
+  width: 420px;
+  height: 420px;
+  left: -120px;
+  top: 10%;
+  background: rgba(42, 120, 255, 0.18);
+}
+
+.bg-glow-2 {
+  width: 380px;
+  height: 380px;
+  right: -100px;
+  top: 18%;
+  background: rgba(0, 208, 255, 0.14);
+}
+
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.16) 0.8px, transparent 0.8px);
+  background-size: 22px 22px;
+}
+
+/* ===== CONTENT ABOVE BACKGROUND ===== */
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 3;
+}
+
+/* extra safety for containers/sections */
+.container,
+.hero-section,
+.section,
+.cta-section,
+.navbar,
+.hero-copy,
+.hero-visual,
+.cards-grid,
+.split-layout,
+.footer-row {
+  position: relative;
+  z-index: 3;
+}
+
+/* ===== PREMIUM GLASS ===== */
+
+.glass-card,
+.navbar,
+.hero-video-shell,
+.visual-panel,
+.metric-card,
+.feature-item,
+.split-panel,
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+    rgba(7, 16, 30, 0.48);
+  border: 1px solid rgba(150, 205, 255, 0.14);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 0 30px rgba(80, 150, 255, 0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    transform 0.32s ease,
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+/* hover lift */
+.glass-card:hover,
+.hero-video-shell:hover,
+.visual-panel:hover,
+.metric-card:hover,
+.feature-item:hover,
+.split-panel:hover,
+.cta-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(120, 190, 255, 0.30);
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(60, 145, 255, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 0 34px rgba(80, 150, 255, 0.05);
+}
+
+/* moving shine */
+.glass-card::before,
+.navbar::before,
+.hero-video-shell::before,
+.visual-panel::before,
+.metric-card::before,
+.feature-item::before,
+.split-panel::before,
+.cta-card::before {
+  content: "";
+  position: absolute;
+  top: -140%;
+  left: -38%;
+  width: 42%;
+  height: 320%;
+  transform: rotate(18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.20),
+    rgba(255,255,255,0.04),
+    transparent
+  );
+  transition: left 0.9s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before,
+.navbar:hover::before,
+.hero-video-shell:hover::before,
+.visual-panel:hover::before,
+.metric-card:hover::before,
+.feature-item:hover::before,
+.split-panel:hover::before,
+.cta-card:hover::before {
+  left: 118%;
+}
+
+/* subtle inner edge glow */
+.glass-card::after,
+.navbar::after,
+.hero-video-shell::after,
+.visual-panel::after,
+.metric-card::after,
+.feature-item::after,
+.split-panel::after,
+.cta-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.03),
+    inset 0 0 24px rgba(56, 135, 255, 0.04);
+}
+
+/* buttons, optional polish */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(45, 132, 255, 0.18);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .bg-grid {
+    background-size: 42px 42px;
+    opacity: 0.10;
+  }
+
+  .bg-glow-1 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .bg-glow-2 {
+    width: 240px;
+    height: 240px;
+  }
+}
