@@ -149,9 +149,7 @@ body.nav-open .nav-toggle span:last-child {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition:
-      opacity var(--transition-fast),
-      transform var(--transition-fast);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
   }
 
   body.nav-open .nav-menu {
