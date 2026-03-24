@@ -52,6 +52,7 @@ button {
   cursor: pointer;
 }
 
+/* FULL-SITE THREE.JS BACKGROUND */
 #siteBgCanvas {
   position: fixed;
   inset: 0;
@@ -61,6 +62,7 @@ button {
   pointer-events: none;
 }
 
+/* SOFT OVERLAY ABOVE THREE.JS, BELOW CONTENT */
 body::before {
   content: "";
   position: fixed;
@@ -68,10 +70,10 @@ body::before {
   z-index: -9;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 30%, rgba(70, 120, 255, 0.08), transparent 42%),
-    radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.05), transparent 38%),
-    radial-gradient(circle at 50% 80%, rgba(60, 100, 255, 0.04), transparent 42%),
-    linear-gradient(180deg, rgba(4, 7, 19, 0.12) 0%, rgba(5, 9, 22, 0.2) 100%);
+    radial-gradient(circle at 20% 30%, rgba(70, 120, 255, 0.05), transparent 42%),
+    radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.03), transparent 38%),
+    radial-gradient(circle at 50% 80%, rgba(60, 100, 255, 0.025), transparent 42%),
+    linear-gradient(180deg, rgba(4, 7, 19, 0.06) 0%, rgba(5, 9, 22, 0.1) 100%);
 }
 
 .container {
@@ -79,6 +81,7 @@ body::before {
   margin-inline: auto;
 }
 
+/* STATIC DECORATIVE BACKGROUND BELOW THREE.JS */
 .site-bg {
   position: fixed;
   inset: 0;
@@ -86,10 +89,10 @@ body::before {
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.05), transparent 30%),
-    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.035), transparent 26%),
-    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.015), transparent 28%),
-    linear-gradient(180deg, #030612 0%, #040816 55%, #030611 100%);
+    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.03), transparent 30%),
+    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.02), transparent 26%),
+    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.01), transparent 28%),
+    linear-gradient(180deg, #02050f 0%, #030714 55%, #02040d 100%);
 }
 
 .bg-grid {
@@ -220,6 +223,11 @@ p {
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
   box-shadow: var(--shadow-lg);
+  transition:
+    transform var(--transition-med),
+    border-color var(--transition-med),
+    box-shadow var(--transition-med),
+    background var(--transition-med);
 }
 
 .glass-card::before {
@@ -228,12 +236,52 @@ p {
   inset: 0;
   background: linear-gradient(
     130deg,
-    rgba(255,255,255,0.12) 0%,
-    rgba(255,255,255,0.02) 18%,
-    transparent 38%,
+    rgba(255,255,255,0.14) 0%,
+    rgba(255,255,255,0.03) 18%,
+    transparent 42%,
     transparent 100%
   );
   pointer-events: none;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -40%;
+  width: 55%;
+  height: 300%;
+  transform: rotate(18deg);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.02) 20%,
+    rgba(255,255,255,0.16) 50%,
+    rgba(255,255,255,0.03) 80%,
+    rgba(255,255,255,0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--transition-med),
+    transform 0.8s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 168, 255, 0.34);
+  box-shadow:
+    var(--shadow-xl),
+    0 0 30px rgba(78, 161, 255, 0.12),
+    inset 0 0 24px rgba(124, 198, 255, 0.04);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03)),
+    rgba(10, 16, 32, 0.68);
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+  transform: translateX(180%) rotate(18deg);
 }
 
 .cards-grid {
@@ -380,20 +428,6 @@ p {
 .ecosystem-card {
   min-height: 220px;
   padding: 22px;
-  transition:
-    transform var(--transition-med),
-    border-color var(--transition-med),
-    box-shadow var(--transition-med);
-}
-
-.ecosystem-card:hover,
-.feature-item:hover,
-.stack-line:hover {
-  transform: translateY(-6px);
-  border-color: rgba(124, 168, 255, 0.34);
-  box-shadow:
-    var(--shadow-xl),
-    0 0 30px rgba(78, 161, 255, 0.12);
 }
 
 .card-icon {
@@ -467,29 +501,4 @@ p {
   50% {
     transform: translate3d(18px, -14px, 0) scale(1.04);
   }
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -9;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(70, 120, 255, 0.05), transparent 42%),
-    radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.03), transparent 38%),
-    radial-gradient(circle at 50% 80%, rgba(60, 100, 255, 0.025), transparent 42%),
-    linear-gradient(180deg, rgba(4, 7, 19, 0.06) 0%, rgba(5, 9, 22, 0.1) 100%);
-}
-
-.site-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -11;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(33, 92, 255, 0.03), transparent 30%),
-    radial-gradient(circle at 80% 18%, rgba(88, 173, 255, 0.02), transparent 26%),
-    radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.01), transparent 28%),
-    linear-gradient(180deg, #02050f 0%, #030714 55%, #02040d 100%);
 }
