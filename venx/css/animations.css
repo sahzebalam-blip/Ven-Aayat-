@@ -1,0 +1,63 @@
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.glass-card,
+.btn,
+.nav-link,
+.tokenomics-item,
+.ecosystem-card,
+.utility-card,
+.whitepaper-block,
+.feature-item,
+.stack-line {
+  will-change: transform;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    130deg,
+    rgba(255,255,255,0.16),
+    rgba(124, 168, 255, 0.18),
+    rgba(214, 179, 106, 0.08),
+    rgba(255,255,255,0.04)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.btn-primary,
+.brand-mark,
+.metric-value,
+.token-info-stat strong {
+  animation: softPulse 4.2s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
