@@ -3,210 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>VENX | Digital Utility Ecosystem</title>
-  <meta
-    name="description"
-    content="VENX is a premium digital utility ecosystem built for participation, token structure, and future-ready Web3 expansion within the Ven Aayat ecosystem."
-  />
+  <title>VENX — Native Intelligence Layer</title>
+  <meta name="description" content="VENX is the native intelligence layer of VenCrypto — a premium Web3 ecosystem interface with utility, structure, and future-ready infrastructure." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/venx.css" />
+  <link rel="stylesheet" href="./assets/css/variables.css" />
+  <link rel="stylesheet" href="./assets/css/global.css" />
+  <link rel="stylesheet" href="./assets/css/navbar.css" />
+  <link rel="stylesheet" href="./assets/css/hero.css" />
+  <link rel="stylesheet" href="./assets/css/animations.css" />
 </head>
-<body class="venx-page">
+<body data-page="home">
+  <div class="site-bg">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-noise"></div>
+  </div>
 
   <header class="site-header">
-    <nav class="navbar">
-      <a href="../index.html" class="logo">VENX</a>
+    <nav class="navbar container">
+      <a href="./index.html" class="brand">
+        <span class="brand-mark"></span>
+        <span class="brand-text">VENX</span>
+      </a>
 
-      <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="../ecosystem.html">Ecosystem</a>
-        <a href="./index.html" class="active" aria-current="page">VENX</a>
-        <a href="./token/index.html">Token</a>
+      <button class="nav-toggle" aria-label="Open Menu">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu">
+        <a href="./index.html" class="nav-link active">Home</a>
+        <a href="./venx/token/index.html" class="nav-link">Token</a>
+        <a href="./venx/whitepaper/index.html" class="nav-link">Whitepaper</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <canvas id="portalCanvas" aria-hidden="true"></canvas>
-
-      <div class="hero-content">
-        <span class="eyebrow">Digital Utility • Token Structure • Web3 Expansion</span>
-
-        <h1>Enter the VENX Portal</h1>
-
-        <p>
-          A premium token ecosystem designed to feel alive, futuristic, and
-          purpose-built inside the wider Ven Aayat digital universe.
+    <section class="hero-section container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">VenCrypto Ecosystem</div>
+        <h1 class="hero-title">
+          VENX
+          <span>The Native Intelligence Layer of VenCrypto</span>
+        </h1>
+        <p class="hero-text">
+          A premium Web3-native ecosystem layer designed to connect token utility,
+          exchange infrastructure, education, and future smart ecosystem growth into
+          one intelligent experience.
         </p>
 
-        <div class="buttons">
-          <a href="./token/index.html" class="btn primary">Explore Token</a>
-          <a href="#about" class="btn secondary">Enter Ecosystem</a>
+        <div class="hero-actions">
+          <a href="./venx/token/index.html" class="btn btn-primary">Explore Token</a>
+          <a href="./venx/whitepaper/index.html" class="btn btn-secondary">Read Whitepaper</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-card glass-card reveal">
+            <span class="metric-value">3</span>
+            <span class="metric-label">Core ecosystem layers</span>
+          </div>
+          <div class="metric-card glass-card reveal">
+            <span class="metric-value">7</span>
+            <span class="metric-label">Utility allocation blocks</span>
+          </div>
+          <div class="metric-card glass-card reveal">
+            <span class="metric-value">∞</span>
+            <span class="metric-label">Scalable system direction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hero-canvas-shell glass-card">
+          <canvas id="heroOrbCanvas"></canvas>
+          <div class="hero-visual-overlay">
+            <div class="visual-badge">Live System Core</div>
+            <div class="visual-panel glass-card">
+              <span class="panel-label">Status</span>
+              <strong>Operational Intelligence Layer</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section trust-section">
-      <h2>Built for a Strong Digital Presence</h2>
-      <p class="section-copy">
-        VENX is designed as more than a token page. It is a full digital
-        product experience built around utility, ecosystem identity,
-        and next-generation Web3 presentation.
-      </p>
+    <section class="section container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Connected Ecosystem</div>
+        <h2>Three foundational layers. One unified direction.</h2>
+        <p>
+          VENX is not positioned as a standalone hype asset. It is built to operate
+          as a structured utility layer across the VenCrypto ecosystem.
+        </p>
+      </div>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Web3 Identity</h3>
+      <div class="cards-grid cards-3">
+        <article class="glass-card ecosystem-card reveal">
+          <div class="card-icon"></div>
+          <h3>VenCrypto Exchange</h3>
           <p>
-            A distinct premium presence that gives VENX its own serious and
-            immersive digital product feel.
+            Exchange infrastructure, platform-native growth potential, and future
+            ecosystem movement anchored through a more unified system identity.
           </p>
+          <a href="./venx/whitepaper/index.html" class="text-link">View Ecosystem Direction</a>
+        </article>
+
+        <article class="glass-card ecosystem-card reveal">
+          <div class="card-icon"></div>
+          <h3>VENX Token</h3>
+          <p>
+            A utility-first token layer designed for ecosystem participation,
+            internal services, future access mechanisms, and system-led expansion.
+          </p>
+          <a href="./venx/token/index.html" class="text-link">Explore Token Utility</a>
+        </article>
+
+        <article class="glass-card ecosystem-card reveal">
+          <div class="card-icon"></div>
+          <h3>VENX Academy</h3>
+          <p>
+            Education, onboarding, knowledge systems, and future user activation
+            through structured learning and ecosystem awareness.
+          </p>
+          <a href="./venx/whitepaper/index.html" class="text-link">Read Vision</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="split-layout">
+        <div class="split-copy reveal">
+          <div class="eyebrow">Why VENX</div>
+          <h2>Built for utility, identity, and expansion.</h2>
+          <p>
+            VENX is intended to strengthen the internal architecture of the broader
+            VenCrypto ecosystem — not through noise, but through structured purpose,
+            layered utility, and long-term ecosystem design.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item glass-card reveal">
+              <h4>Utility-Led</h4>
+              <p>Focused on actual ecosystem use instead of empty token narratives.</p>
+            </div>
+            <div class="feature-item glass-card reveal">
+              <h4>Premium Positioning</h4>
+              <p>Designed with a clean, advanced, investor-grade digital interface.</p>
+            </div>
+            <div class="feature-item glass-card reveal">
+              <h4>Future Expandable</h4>
+              <p>Built to support exchange, academy, services, and future smart layers.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Luxury Interface</h3>
-          <p>
-            Designed with cinematic depth, glassmorphism, glow accents,
-            and a more advanced token-world atmosphere.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Future Ready</h3>
-          <p>
-            Positioned for broader utility, stronger digital relevance,
-            and scalable ecosystem growth over time.
-          </p>
+        <div class="split-panel glass-card reveal">
+          <div class="stack-lines">
+            <div class="stack-line">
+              <span>Core Layer</span>
+              <strong>VENX Intelligence</strong>
+            </div>
+            <div class="stack-line">
+              <span>Utility Layer</span>
+              <strong>Access • Participation • Ecosystem Use</strong>
+            </div>
+            <div class="stack-line">
+              <span>Growth Layer</span>
+              <strong>Exchange • Academy • Future Infrastructure</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <h2>What is VENX</h2>
-      <p class="section-copy">
-        VENX is a digital utility ecosystem built to support token structure,
-        brand depth, platform direction, and future-facing Web3 participation
-        inside the Ven Aayat framework.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Utility First</h3>
+    <section class="section container cta-section">
+      <div class="glass-card cta-card reveal">
+        <div>
+          <div class="eyebrow">Next Layer</div>
+          <h2>Enter the VENX token architecture.</h2>
           <p>
-            Built around ecosystem logic, future product relevance,
-            and more structured digital value.
+            Explore the token utility, allocation model, and 3D ecosystem tokenomics experience.
           </p>
         </div>
-
-        <div class="card">
-          <h3>Token World</h3>
-          <p>
-            Created to feel like an actual ecosystem layer, not just a
-            plain marketing section or static token page.
-          </p>
+        <div class="cta-actions">
+          <a href="./venx/token/index.html" class="btn btn-primary">Go to Token Page</a>
+          <a href="./venx/whitepaper/index.html" class="btn btn-secondary">Open Whitepaper</a>
         </div>
-
-        <div class="card">
-          <h3>Scalable Role</h3>
-          <p>
-            Designed to support future integrations, product modules,
-            and broader digital ecosystem growth.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>VENX Ecosystem</h2>
-      <p class="section-copy">
-        The VENX ecosystem connects token structure, digital utility,
-        product identity, and future-ready expansion in one aligned direction.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Token Layer</h3>
-          <p>
-            A premium digital asset layer built to represent structure,
-            access, and ecosystem direction.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Growth Layer</h3>
-          <p>
-            Positioned as part of a broader digital model that can grow
-            into stronger products, experiences, and connected systems.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Expansion Layer</h3>
-          <p>
-            Built to align with wider Web3, education, platform, and
-            ecosystem-facing development over time.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>How VENX Works</h2>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Enter</h3>
-          <p>
-            Users discover VENX as a premium product experience inside
-            the wider Ven Aayat ecosystem.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Explore</h3>
-          <p>
-            The user experiences token structure, utility direction,
-            and ecosystem relevance in a clear and immersive way.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Expand</h3>
-          <p>
-            VENX is positioned for future growth into a stronger
-            token-led digital ecosystem.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <h2>Step Deeper Into the VENX Structure</h2>
-      <p class="section-copy">
-        Continue to the token page to explore utility, tokenomics,
-        roadmap, and the broader ecosystem direction behind VENX.
-      </p>
-
-      <div class="buttons">
-        <a href="./token/index.html" class="btn primary">View Token Page</a>
-        <a href="../ecosystem.html" class="btn secondary">Back to Ecosystem</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>VENX is a premium digital ecosystem product within Ven Aayat Tech.</p>
+  <footer class="site-footer container">
+    <div class="footer-line"></div>
+    <div class="footer-row">
+      <span>© 2026 VENX / VenCrypto</span>
+      <span>Premium Web3 ecosystem interface</span>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/venx-portal.js"></script>
+  <script type="module" src="./assets/js/main.js"></script>
+  <script type="module" src="./assets/js/three-scene.js"></script>
 </body>
 </html>
