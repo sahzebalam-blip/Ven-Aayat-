@@ -15,10 +15,7 @@
 .glass-card,
 .btn,
 .nav-link,
-.tokenomics-item,
 .ecosystem-card,
-.utility-card,
-.whitepaper-block,
 .feature-item,
 .stack-line {
   will-change: transform;
@@ -48,8 +45,7 @@
 
 .btn-primary,
 .brand-mark,
-.metric-value,
-.token-info-stat strong {
+.metric-value {
   animation: softPulse 4.2s ease-in-out infinite;
 }
 
