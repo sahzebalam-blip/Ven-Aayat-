@@ -81,7 +81,7 @@ body::before {
   margin-inline: auto;
 }
 
-/* DECORATIVE STATIC BACKGROUND BELOW THREE.JS */
+/* STATIC DECORATIVE BACKGROUND BELOW THREE.JS */
 .site-bg {
   position: fixed;
   inset: 0;
