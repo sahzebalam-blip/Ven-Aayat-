@@ -52,7 +52,6 @@ button {
   cursor: pointer;
 }
 
-/* FULL-SITE THREE.JS BACKGROUND */
 #siteBgCanvas {
   position: fixed;
   inset: 0;
@@ -62,7 +61,6 @@ button {
   pointer-events: none;
 }
 
-/* SOFT OVERLAY ABOVE THREE.JS, BELOW CONTENT */
 body::before {
   content: "";
   position: fixed;
@@ -81,7 +79,6 @@ body::before {
   margin-inline: auto;
 }
 
-/* STATIC DECORATIVE BACKGROUND BELOW THREE.JS */
 .site-bg {
   position: fixed;
   inset: 0;
