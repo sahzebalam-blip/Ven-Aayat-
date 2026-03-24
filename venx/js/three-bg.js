@@ -6,12 +6,12 @@ if (canvas) {
   const scene = new THREE.Scene();
 
   const camera = new THREE.PerspectiveCamera(
-    50,
+    48,
     window.innerWidth / window.innerHeight,
     0.1,
     100
   );
-  camera.position.z = 22;
+  camera.position.z = 18.5;
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -21,7 +21,7 @@ if (canvas) {
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.7));
   renderer.setClearColor(0x000000, 0);
 
   const isMobile = window.innerWidth < 768;
@@ -29,24 +29,33 @@ if (canvas) {
   /* =========================
      CONFIG
   ========================= */
-  const NODE_COUNT = isMobile ? 85 : 125;
-  const MAX_CONNECTIONS = isMobile ? 220 : 360;
-  const MAX_DISTANCE = isMobile ? 2.45 : 2.85;
+  const NODE_COUNT = isMobile ? 105 : 165;
+  const MAX_CONNECTIONS = isMobile ? 300 : 560;
+  const MAX_DISTANCE = isMobile ? 2.85 : 3.35;
 
   const nodesData = [];
   const positions = new Float32Array(NODE_COUNT * 3);
 
   /* =========================
-     NODES
+     NODE FIELD
+     center density + wide spread
   ========================= */
   for (let i = 0; i < NODE_COUNT; i++) {
-    const spreadX = 30;
-    const spreadY = 18;
-    const spreadZ = 10;
+    const clusterBias = Math.random();
 
-    const x = (Math.random() - 0.5) * spreadX;
-    const y = (Math.random() - 0.5) * spreadY;
-    const z = (Math.random() - 0.5) * spreadZ;
+    let x, y, z;
+
+    if (clusterBias < 0.55) {
+      // denser center field
+      x = (Math.random() - 0.5) * 18;
+      y = (Math.random() - 0.5) * 10;
+      z = (Math.random() - 0.5) * 6;
+    } else {
+      // outer field
+      x = (Math.random() - 0.5) * 34;
+      y = (Math.random() - 0.5) * 20;
+      z = (Math.random() - 0.5) * 10;
+    }
 
     positions[i * 3] = x;
     positions[i * 3 + 1] = y;
@@ -59,11 +68,11 @@ if (canvas) {
       x,
       y,
       z,
-      vx: (Math.random() - 0.5) * 0.010,
-      vy: (Math.random() - 0.5) * 0.010,
-      vz: (Math.random() - 0.5) * 0.003,
+      vx: (Math.random() - 0.5) * 0.008,
+      vy: (Math.random() - 0.5) * 0.008,
+      vz: (Math.random() - 0.5) * 0.0025,
       phase: Math.random() * Math.PI * 2,
-      amp: 0.18 + Math.random() * 0.35,
+      amp: 0.24 + Math.random() * 0.4,
     });
   }
 
@@ -71,10 +80,10 @@ if (canvas) {
   nodeGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   const nodeMaterial = new THREE.PointsMaterial({
-    color: 0x9fd6ff,
-    size: isMobile ? 0.07 : 0.08,
+    color: 0xc2e8ff,
+    size: isMobile ? 0.08 : 0.105,
     transparent: true,
-    opacity: 0.95,
+    opacity: 1,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
     sizeAttenuation: true,
@@ -84,7 +93,7 @@ if (canvas) {
   scene.add(points);
 
   /* =========================
-     LINES
+     SMART CONNECTION LINES
   ========================= */
   const linePositions = new Float32Array(MAX_CONNECTIONS * 6);
 
@@ -96,9 +105,9 @@ if (canvas) {
   lineGeometry.setDrawRange(0, 0);
 
   const lineMaterial = new THREE.LineBasicMaterial({
-    color: 0x5aaeff,
+    color: 0x72c8ff,
     transparent: true,
-    opacity: 0.16,
+    opacity: 0.24,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
   });
@@ -107,16 +116,15 @@ if (canvas) {
   scene.add(lineSegments);
 
   /* =========================
-     SOFT DEPTH PARTICLES
-     (no circles, just faint dust)
+     DEPTH DUST
   ========================= */
-  const dustCount = isMobile ? 70 : 120;
+  const dustCount = isMobile ? 90 : 160;
   const dustPositions = new Float32Array(dustCount * 3);
 
   for (let i = 0; i < dustCount; i++) {
-    dustPositions[i * 3] = (Math.random() - 0.5) * 42;
-    dustPositions[i * 3 + 1] = (Math.random() - 0.5) * 24;
-    dustPositions[i * 3 + 2] = (Math.random() - 0.5) * 22 - 8;
+    dustPositions[i * 3] = (Math.random() - 0.5) * 46;
+    dustPositions[i * 3 + 1] = (Math.random() - 0.5) * 28;
+    dustPositions[i * 3 + 2] = (Math.random() - 0.5) * 24 - 8;
   }
 
   const dustGeometry = new THREE.BufferGeometry();
@@ -126,10 +134,10 @@ if (canvas) {
   );
 
   const dustMaterial = new THREE.PointsMaterial({
-    color: 0x6fbfff,
-    size: isMobile ? 0.03 : 0.04,
+    color: 0x8fd7ff,
+    size: isMobile ? 0.04 : 0.055,
     transparent: true,
-    opacity: 0.18,
+    opacity: 0.22,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
   });
@@ -138,7 +146,38 @@ if (canvas) {
   scene.add(dust);
 
   /* =========================
-     MOUSE PARALLAX
+     CENTER ENERGY MIST
+     no circles, just faint core depth
+  ========================= */
+  const mistCount = isMobile ? 36 : 60;
+  const mistPositions = new Float32Array(mistCount * 3);
+
+  for (let i = 0; i < mistCount; i++) {
+    mistPositions[i * 3] = (Math.random() - 0.5) * 14;
+    mistPositions[i * 3 + 1] = (Math.random() - 0.5) * 8;
+    mistPositions[i * 3 + 2] = (Math.random() - 0.5) * 5 - 2;
+  }
+
+  const mistGeometry = new THREE.BufferGeometry();
+  mistGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(mistPositions, 3)
+  );
+
+  const mistMaterial = new THREE.PointsMaterial({
+    color: 0x4fb7ff,
+    size: isMobile ? 0.12 : 0.18,
+    transparent: true,
+    opacity: 0.08,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+
+  const mist = new THREE.Points(mistGeometry, mistMaterial);
+  scene.add(mist);
+
+  /* =========================
+     POINTER PARALLAX
   ========================= */
   const pointer = { x: 0, y: 0 };
 
@@ -158,7 +197,7 @@ if (canvas) {
     camera.updateProjectionMatrix();
 
     renderer.setSize(w, h);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.7));
   }
 
   window.addEventListener("resize", onResize);
@@ -174,7 +213,6 @@ if (canvas) {
     const time = clock.getElapsedTime();
     const posArray = nodeGeometry.attributes.position.array;
 
-    // Node movement
     for (let i = 0; i < NODE_COUNT; i++) {
       const n = nodesData[i];
       const idx = i * 3;
@@ -183,15 +221,13 @@ if (canvas) {
       n.y += n.vy;
       n.z += n.vz;
 
-      // soft bounds around base positions
       if (n.x > n.baseX + 2.8 || n.x < n.baseX - 2.8) n.vx *= -1;
-      if (n.y > n.baseY + 2.2 || n.y < n.baseY - 2.2) n.vy *= -1;
-      if (n.z > n.baseZ + 1.2 || n.z < n.baseZ - 1.2) n.vz *= -1;
+      if (n.y > n.baseY + 2.1 || n.y < n.baseY - 2.1) n.vy *= -1;
+      if (n.z > n.baseZ + 1.15 || n.z < n.baseZ - 1.15) n.vz *= -1;
 
-      // wave-like energy motion
-      const waveX = Math.sin(time * 0.22 + n.phase) * 0.06 * n.amp;
-      const waveY = Math.cos(time * 0.48 + n.phase * 1.3) * 0.11 * n.amp;
-      const waveZ = Math.sin(time * 0.30 + n.phase * 0.8) * 0.04 * n.amp;
+      const waveX = Math.sin(time * 0.22 + n.phase) * 0.08 * n.amp;
+      const waveY = Math.cos(time * 0.46 + n.phase * 1.3) * 0.16 * n.amp;
+      const waveZ = Math.sin(time * 0.30 + n.phase * 0.8) * 0.05 * n.amp;
 
       posArray[idx] = n.x + waveX;
       posArray[idx + 1] = n.y + waveY;
@@ -200,7 +236,6 @@ if (canvas) {
 
     nodeGeometry.attributes.position.needsUpdate = true;
 
-    // Build smart connection lines
     let lineIndex = 0;
     let connectionCount = 0;
 
@@ -238,19 +273,25 @@ if (canvas) {
     lineGeometry.setDrawRange(0, connectionCount * 2);
     lineGeometry.attributes.position.needsUpdate = true;
 
-    // scene drift
-    points.rotation.y = Math.sin(time * 0.10) * 0.06;
-    points.rotation.x = Math.cos(time * 0.08) * 0.025;
+    // layered motion
+    points.rotation.y = Math.sin(time * 0.10) * 0.075;
+    points.rotation.x = Math.cos(time * 0.08) * 0.03;
 
     lineSegments.rotation.y = points.rotation.y;
     lineSegments.rotation.x = points.rotation.x;
 
-    dust.rotation.y = -time * 0.01;
-    dust.rotation.x = Math.sin(time * 0.05) * 0.02;
+    dust.rotation.y = -time * 0.012;
+    dust.rotation.x = Math.sin(time * 0.05) * 0.025;
 
-    // mouse depth
-    camera.position.x += (pointer.x * 1.4 - camera.position.x) * 0.022;
-    camera.position.y += (pointer.y * 0.9 - camera.position.y) * 0.022;
+    mist.rotation.y = time * 0.018;
+    mist.rotation.x = Math.sin(time * 0.04) * 0.02;
+
+    // subtle center breathing
+    mistMaterial.opacity = 0.07 + Math.sin(time * 0.9) * 0.015;
+
+    // camera depth
+    camera.position.x += (pointer.x * 1.25 - camera.position.x) * 0.02;
+    camera.position.y += (pointer.y * 0.85 - camera.position.y) * 0.02;
     camera.lookAt(0, 0, 0);
 
     renderer.render(scene, camera);
