@@ -1,0 +1,14 @@
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  border: none;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+}
