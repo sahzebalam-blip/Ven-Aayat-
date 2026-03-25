@@ -188,7 +188,7 @@ select {
 
 .brand-logo {
   display: block;
-  width: auto;
+  width: 250;
   height: 250px;
   max-height: 250px;
   object-fit: contain;
