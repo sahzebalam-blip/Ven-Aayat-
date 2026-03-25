@@ -180,8 +180,8 @@ main {
   left: -24px;
   top: 50%;
   transform: translateY(-50%);
-  width: 120px;
-  height: 120px;
+  width: 82px;
+  height: 82px;
   background: radial-gradient(
     circle,
     rgba(78,161,255,0.20) 0%,
@@ -262,7 +262,7 @@ main {
   }
 
   .hero-copy {
-    padding-top: 30px;
+    padding-top: 24px;
   }
 
   .hero-logo img {
