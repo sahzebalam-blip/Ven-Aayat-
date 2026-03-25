@@ -117,3 +117,17 @@
     font-size: 0.88rem;
   }
 }
+.main-nav.mobile-open {
+  display: flex;
+  position: absolute;
+  top: 78px;
+  left: 14px;
+  right: 14px;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+}
