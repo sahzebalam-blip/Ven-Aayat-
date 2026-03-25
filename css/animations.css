@@ -1,9 +1,14 @@
+/* =========================
+AMBIENT MOTION
+========================= */
+
 .grid-overlay {
   animation: gridMove 18s linear infinite;
 }
 
 .glow {
   animation: floatGlow 16s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .g2 {
@@ -20,53 +25,350 @@
 
 .bars i {
   animation: barFloat 3.2s ease-in-out infinite;
+  transform-origin: bottom;
 }
 
-.bars i:nth-child(2){animation-delay:-.3s}
-.bars i:nth-child(3){animation-delay:-.8s}
-.bars i:nth-child(4){animation-delay:-1.2s}
-.bars i:nth-child(5){animation-delay:-1.6s}
-.bars i:nth-child(6){animation-delay:-2.1s}
+.bars i:nth-child(2) { animation-delay: -0.3s; }
+.bars i:nth-child(3) { animation-delay: -0.8s; }
+.bars i:nth-child(4) { animation-delay: -1.2s; }
+.bars i:nth-child(5) { animation-delay: -1.6s; }
+.bars i:nth-child(6) { animation-delay: -2.1s; }
 
 .flow-line {
   animation: lineFlow 5s linear infinite;
 }
 
-.connector:after {
+.connector::after {
   animation: connectorMove 2.6s linear infinite;
 }
 
+/* =========================
+REVEAL SYSTEM
+========================= */
+
 .reveal {
-  transition: opacity .8s ease, transform .8s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    filter 0.8s ease;
+  filter: blur(4px);
+  will-change: opacity, transform, filter;
 }
 
+.reveal.in-view,
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* stagger helpers */
+.reveal-delay-1 {
+  transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.24s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.32s;
+}
+
+/* =========================
+CARD / PANEL / BUTTON MICRO-MOTION
+========================= */
+
+.section-card,
+.feature-card,
+.contact-card,
+.glass-card,
+.metric,
+.panel-box,
+.band-tile,
+.timeline-card,
+.cta-card,
+.footer-card,
+.footer-links-card {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+  will-change: transform, box-shadow;
+}
+
+.section-card:hover,
+.feature-card:hover,
+.contact-card:hover,
+.glass-card:hover,
+.metric:hover,
+.panel-box:hover,
+.band-tile:hover,
+.timeline-card:hover,
+.cta-card:hover,
+.footer-links-card:hover {
+  transform: translateY(-5px);
+}
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.social-btn,
+.intro-btn {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.social-btn:hover,
+.intro-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* nav links */
+.nav-links a {
+  transition:
+    color 0.24s ease,
+    text-shadow 0.24s ease;
+}
+
+/* footer links */
+.footer-col a,
+.footer-legal a,
+.footer-links-card a {
+  transition:
+    color 0.24s ease,
+    text-shadow 0.24s ease,
+    transform 0.24s ease;
+}
+
+.footer-col a:hover,
+.footer-legal a:hover,
+.footer-links-card a:hover {
+  transform: translateX(2px);
+}
+
+/* form controls */
+input,
+textarea,
+select {
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  transform: translateY(-1px);
+}
+
+/* logo subtle float */
+.brand-logo {
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================
+TEXT / GLOW ENHANCEMENT
+========================= */
+
+.gradient-text,
+.grad {
+  background-size: 160% 160%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+.eyebrow,
+.label,
+.card-kicker {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.section-card:hover .card-kicker,
+.glass-card:hover .card-kicker,
+.feature-card:hover .card-kicker {
+  transform: translateX(2px);
+}
+
+.hero-copy::before,
+.hero-card::before,
+.hero-card-full::before,
+.panel::before,
+.cta-card::before {
+  animation: auraFloat 11s ease-in-out infinite;
+}
+
+/* =========================
+KEYFRAMES
+========================= */
+
 @keyframes pulse {
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.28)}
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 16px rgba(72, 215, 255, 0.35),
+      0 0 24px rgba(122, 107, 255, 0.08);
+  }
+  50% {
+    transform: scale(1.28);
+    box-shadow:
+      0 0 22px rgba(72, 215, 255, 0.55),
+      0 0 34px rgba(122, 107, 255, 0.16);
+  }
 }
 
 @keyframes barFloat {
-  0%,100%{transform:scaleY(.96)}
-  50%{transform:scaleY(1.05)}
+  0%, 100% {
+    transform: scaleY(0.96);
+  }
+  50% {
+    transform: scaleY(1.05);
+  }
 }
 
 @keyframes lineFlow {
-  0%{transform:translateX(-30%)}
-  100%{transform:translateX(30%)}
+  0% {
+    transform: translateX(-30%);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(30%);
+    opacity: 0.7;
+  }
 }
 
 @keyframes connectorMove {
-  0%{transform:translate(-50%,0);opacity:0}
-  20%{opacity:1}
-  100%{transform:translate(-50%,52px);opacity:0}
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 52px);
+    opacity: 0;
+  }
 }
 
 @keyframes floatGlow {
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(20px,-24px,0) scale(1.05)}
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(20px, -24px, 0) scale(1.05);
+    opacity: 1;
+  }
 }
 
 @keyframes gridMove {
-  0%{transform:translateY(0)}
-  100%{transform:translateY(44px)}
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(44px);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes auraFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(10px, -12px, 0) scale(1.04);
+    opacity: 0.92;
+  }
+}
+
+/* =========================
+REDUCED MOTION SUPPORT
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-overlay,
+  .glow,
+  .dot,
+  .bars i,
+  .flow-line,
+  .connector::after,
+  .gradient-text,
+  .grad,
+  .hero-copy::before,
+  .hero-card::before,
+  .hero-card-full::before,
+  .panel::before,
+  .cta-card::before {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal.in-view,
+  .reveal.is-visible,
+  .section-card,
+  .feature-card,
+  .contact-card,
+  .glass-card,
+  .metric,
+  .panel-box,
+  .band-tile,
+  .timeline-card,
+  .cta-card,
+  .footer-card,
+  .footer-links-card,
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .social-btn,
+  .intro-btn,
+  .footer-col a,
+  .footer-legal a,
+  .footer-links-card a,
+  input,
+  textarea,
+  select,
+  .brand-logo {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+  }
 }
