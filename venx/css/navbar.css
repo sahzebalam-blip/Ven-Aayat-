@@ -272,3 +272,17 @@ main {
     padding-top: 126px;
   }
 }
+/* ===== HERO LOGO POSITION ===== */
+.hero-logo {
+  margin-bottom: 14px;
+}
+
+.hero-logo img {
+  height: 56px;
+  width: auto;
+  display: block;
+
+  filter:
+    drop-shadow(0 6px 18px rgba(78,161,255,0.18))
+    drop-shadow(0 0 10px rgba(214,179,106,0.08));
+}
