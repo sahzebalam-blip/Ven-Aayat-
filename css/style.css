@@ -188,9 +188,9 @@ select {
 
 .brand-logo {
   display: block;
-  width: 300;
-  height: 300px;
-  max-height: 300px;
+  width: auto;
+  height: 90px;
+  max-height: 90px;
   object-fit: contain;
   object-position: left center;
   filter:
