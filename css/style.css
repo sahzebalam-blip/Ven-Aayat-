@@ -226,7 +226,6 @@ INTRO
   font-weight: 600;
   cursor: pointer;
 }
-
 /* =========================
 MASTER HEADER / NAVBAR
 ========================= */
@@ -235,37 +234,39 @@ MASTER HEADER / NAVBAR
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(180deg, rgba(3, 9, 17, 0.92), rgba(3, 9, 17, 0.72));
+  background: linear-gradient(180deg, rgba(3, 9, 17, 0.94), rgba(3, 9, 17, 0.76));
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(90, 164, 255, 0.08);
 }
 
 .header-shell {
-  min-height: 112px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 12px;
   padding: 14px 0 16px;
-  position: relative;
 }
 
 .brand-row {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  min-height: 54px;
 }
 
+.brand,
 .brand-standalone {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  min-width: 0;
+  text-decoration: none;
 }
 
 .brand-logo {
-  height: 52px;
+  display: block;
+  height: 46px;
   width: auto;
   object-fit: contain;
   filter:
@@ -274,49 +275,63 @@ MASTER HEADER / NAVBAR
 }
 
 .nav-row {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  min-height: 52px;
+  min-height: 48px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 28px;
   flex-wrap: wrap;
 }
 
 .nav-links a {
+  position: relative;
   color: #dfe9f9;
   font-weight: 700;
-  font-size: 1rem;
-  position: relative;
-  transition: 0.25s ease;
+  font-size: 0.98rem;
+  text-decoration: none;
+  transition: color 0.24s ease, text-shadow 0.24s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: #ffffff;
+  text-shadow:
+    0 0 14px rgba(72,215,255,0.18),
+    0 0 10px rgba(122,107,255,0.08);
 }
 
-.nav-links a.active::after,
-.nav-links a:hover::after {
+.nav-links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -12px;
+  bottom: -10px;
   width: 100%;
   height: 2px;
   border-radius: 999px;
   background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+  opacity: 0;
+  transform: scaleX(0.7);
+  transform-origin: center;
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .nav-toggle {
   display: none;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.04);
@@ -329,13 +344,12 @@ MASTER HEADER / NAVBAR
 }
 
 .nav-toggle span {
+  display: block;
   width: 20px;
   height: 2px;
   border-radius: 999px;
   background: #ffffff;
-  display: block;
 }
-
 /* =========================
 BUTTONS / INTERACTIVE
 ========================= */
