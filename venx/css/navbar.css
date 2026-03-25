@@ -266,3 +266,26 @@ body.nav-open .nav-toggle span:last-child {
     min-height: 46px;
   }
 }
+/* ===== FLOATING BRAND ===== */
+.brand-floating {
+  position: fixed;
+  top: 14px;
+  left: 28px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+}
+
+.brand-floating img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 6px 16px rgba(78,161,255,0.25))
+    drop-shadow(0 0 10px rgba(214,179,106,0.15));
+  transition: transform 0.25s ease;
+}
+
+.brand-floating img:hover {
+  transform: scale(1.05);
+}
