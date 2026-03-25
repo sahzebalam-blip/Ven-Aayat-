@@ -1574,3 +1574,47 @@ main section {
     border-radius: 24px;
   }
 }
+/* ===== FINAL LOGO SIZE FIX ===== */
+.brand,
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 44px;        /* desktop size */
+  max-height: 44px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* logo box ko clean rakho */
+.brand-standalone {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* header row balance */
+.brand-row {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .brand-logo {
+    height: 38px;
+    max-height: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-logo {
+    height: 34px;
+    max-height: 34px;
+  }
+}
