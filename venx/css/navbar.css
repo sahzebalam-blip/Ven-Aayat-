@@ -196,7 +196,7 @@ main {
 
 .hero-logo img {
   display: block;
-  height: 110x;
+  height: 82x;
   width: auto;
   max-width: none;
   object-fit: contain;
@@ -308,7 +308,7 @@ main {
   }
 
   .hero-copy {
-    padding-top: 32px;
+    padding-top: 28px;
   }
 
   .hero-logo {
