@@ -29,7 +29,7 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   font-weight: 800;
   letter-spacing: -0.02em;
   text-decoration: none;
@@ -41,37 +41,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   flex-shrink: 0;
-  background: transparent;
-  box-shadow: none;
+  width: 44px;
+  height: 44px;
 }
 
 .brand-logo img {
   display: block;
   width: auto;
-  height: 34px;
+  height: 36px;
   object-fit: contain;
   filter:
-    drop-shadow(0 4px 10px rgba(78, 161, 255, 0.16))
-    drop-shadow(0 0 10px rgba(214, 179, 106, 0.08));
+    drop-shadow(0 4px 10px rgba(78, 161, 255, 0.14))
+    drop-shadow(0 0 8px rgba(214, 179, 106, 0.08));
 }
 
 .brand-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.92), transparent 22%),
-    radial-gradient(circle, #90d8ff 0%, #4ea1ff 48%, #1036a7 100%);
-  box-shadow:
-    0 0 14px rgba(78, 161, 255, 0.46),
-    0 0 26px rgba(78, 161, 255, 0.18);
+  display: none;
 }
 
 .brand-text {
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   white-space: nowrap;
@@ -192,8 +182,13 @@ body.nav-open .nav-toggle span:last-child {
     padding: 0 14px;
   }
 
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
   .brand-logo img {
-    height: 32px;
+    height: 34px;
   }
 }
 
@@ -209,7 +204,12 @@ body.nav-open .nav-toggle span:last-child {
   }
 
   .brand {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
   }
 
   .brand-logo img {
