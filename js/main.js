@@ -40,10 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- Venaayat / Main Site ----------
   if (!isVenxPage) {
     document.querySelectorAll(".reveal").forEach((el) => {
-      el.classList.add("visible");
-      el.classList.add("show");
+      el.classList.add("is-visible");
     });
-
     return;
   }
 
