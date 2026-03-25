@@ -39,8 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 84px;
+  height: 84px;
   border-radius: 12px;
   background:
     linear-gradient(135deg, rgba(78,161,255,0.15), rgba(214,179,106,0.08));
