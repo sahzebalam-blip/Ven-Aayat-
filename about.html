@@ -5,176 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Ven Aayat Tech Solutions</title>
 
-  <!-- CSS ORDER IMPORTANT -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/about.css" />
 </head>
+<body class="about-page">
 
-<body>
+  <canvas id="networkCanvas"></canvas>
+  <canvas id="particleCanvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="noise"></div>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div class="container header-shell">
+  <div class="glow-wrap" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
+  </div>
 
-    <div class="brand-row">
-      <a href="index.html" class="brand">
-        <img src="assets/logos/logo.png" alt="Ven Aayat" class="brand-logo">
-      </a>
-    </div>
+  <div class="site">
 
-    <div class="nav-row">
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="services.html">Services</a>
-        <a href="ecosystem.html">Ecosystem</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+    <header class="site-header">
+      <div class="container header-shell">
+        <div class="brand-row">
+          <a href="index.html" class="brand brand-standalone" aria-label="Ven Aayat Tech Home">
+            <img src="assets/logos/logo.png" alt="Ven Aayat Tech Solutions" class="brand-logo" />
+          </a>
+        </div>
+
+        <div class="nav-row">
+          <button class="nav-toggle" aria-label="Toggle Navigation" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav class="nav-links" aria-label="Primary Navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="ecosystem.html">Ecosystem</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="about-section">
+        <div class="container">
+
+          <div class="section-head reveal">
+            <div>
+              <div class="label"><span class="dot"></span> About Ven Aayat</div>
+              <h2>System-focused digital execution for Web3, fintech and platform environments.</h2>
+            </div>
+
+            <p>
+              Ven Aayat Tech Solutions builds connected digital systems where structure, interface
+              and execution operate together. The focus is on usable architecture, controlled
+              expansion and strong digital presentation across evolving platform environments.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="section-card reveal">
+              <div class="icon">01</div>
+              <h3>What We Build</h3>
+              <p>
+                The work includes exchange-facing interfaces, token ecosystems, learning layers
+                and supporting platform infrastructure designed to function as part of one wider system.
+              </p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">02</div>
+              <h3>How We Approach It</h3>
+              <p>
+                Each build begins with clarity around structure, user flow and long-term usability,
+                reducing fragmentation and improving consistency across the product environment.
+              </p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">03</div>
+              <h3>Execution Standard</h3>
+              <p>
+                The objective is not to stack isolated features, but to deliver stable digital
+                systems where visual identity, interface behavior and platform logic remain aligned.
+              </p>
+            </article>
+
+            <article class="section-card reveal">
+              <div class="icon">04</div>
+              <h3>Operating View</h3>
+              <p>
+                Decisions are made with maintainability, clarity and system continuity in mind,
+                ensuring the digital environment remains usable as the ecosystem expands.
+              </p>
+            </article>
+          </div>
+
+          <div class="band reveal">
+            <div class="band-grid">
+              <div class="band-tile">
+                <small>Layer 1</small>
+                <strong>Core system architecture and digital structure</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Layer 2</small>
+                <strong>Interface flow and controlled user interaction</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Layer 3</small>
+                <strong>Web3 integration and ecosystem alignment</strong>
+              </div>
+
+              <div class="band-tile">
+                <small>Layer 4</small>
+                <strong>Scalable deployment across platform environments</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-card reveal">
+          <div class="footer-grid">
+            <div class="footer-col footer-brand">
+              <a class="footer-logo" href="index.html" aria-label="Ven Aayat Tech Home">
+                <img src="assets/logos/logo.png" alt="Ven Aayat Tech Solutions" class="brand-logo" />
+              </a>
+              <p>Structured digital infrastructure for Web3, fintech and scalable systems.</p>
+            </div>
+
+            <div class="footer-col">
+              <h4>Navigation</h4>
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="services.html">Services</a>
+              <a href="ecosystem.html">Ecosystem</a>
+              <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-col">
+              <h4>Ecosystem</h4>
+              <a href="https://vencrypto.com" target="_blank" rel="noopener noreferrer">VenCrypto</a>
+              <a href="venx/index.html">VENX</a>
+              <a href="venxacademy/index.html">Academy</a>
+            </div>
+
+            <div class="footer-col">
+              <h4>Contact</h4>
+              <a href="mailto:adm.venitech@gmail.com">adm.venitech@gmail.com</a>
+              <a href="#">WhatsApp</a>
+              <a href="#">Instagram</a>
+              <a href="#">X</a>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>© <span id="year"></span> Ven Aayat Tech Solutions Pvt. Ltd. All rights reserved.</p>
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Disclaimer</a>
+              <a href="#">Terms</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </div>
-</header>
 
-<!-- ================= MAIN ================= -->
-<main>
-
-<section class="about-section">
-  <div class="container">
-
-    <div class="section-head">
-      <h2>About Ven Aayat</h2>
-      <p>
-        Ven Aayat Tech Solutions focuses on building structured digital systems across Web3,
-        fintech and platform-based environments. The emphasis is on how components connect,
-        operate and scale together.
-      </p>
-    </div>
-
-    <div class="grid-2">
-
-      <div class="section-card">
-        <h3>What We Work On</h3>
-        <p>
-          The work includes exchange interfaces, token ecosystems, learning layers and
-          supporting infrastructure designed to function as a connected system.
-        </p>
-      </div>
-
-      <div class="section-card">
-        <h3>Approach</h3>
-        <p>
-          Systems are defined early to maintain clarity, avoid fragmentation and support
-          long-term scalability without unnecessary rebuilds.
-        </p>
-      </div>
-
-      <div class="section-card">
-        <h3>Execution Style</h3>
-        <p>
-          Each component is built with real usage in mind, ensuring stability across different
-          stages of product growth.
-        </p>
-      </div>
-
-      <div class="section-card">
-        <h3>System Thinking</h3>
-        <p>
-          Decisions are based on structure, usability and maintainability rather than trends
-          or short-term visual appeal.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="band">
-      <div class="band-grid">
-
-        <div class="band-tile">
-          <small>Layer 1</small>
-          <strong>Core system architecture</strong>
-        </div>
-
-        <div class="band-tile">
-          <small>Layer 2</small>
-          <strong>Interface and user flow</strong>
-        </div>
-
-        <div class="band-tile">
-          <small>Layer 3</small>
-          <strong>Web3 and integration layer</strong>
-        </div>
-
-        <div class="band-tile">
-          <small>Layer 4</small>
-          <strong>Scalable deployment structure</strong>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <div class="container footer-card">
-
-    <div class="footer-grid">
-
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="assets/logos/logo.png" class="brand-logo" alt="Ven Aayat">
-        </a>
-        <p>
-          Structured digital systems for Web3, fintech and scalable platform environments.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="ecosystem.html">Ecosystem</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Ecosystem</h4>
-        <a href="https://vencrypto.com">VenCrypto</a>
-        <a href="venx/index.html">VENX</a>
-        <a href="venxacademy/index.html">Academy</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <p>adm.venitech@gmail.com</p>
-        <a href="#">WhatsApp</a>
-        <a href="#">Instagram</a>
-        <a href="#">X</a>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 Ven Aayat Tech Solutions Pvt. Ltd. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Disclaimer</a>
-        <a href="#">Terms</a>
-      </div>
-    </div>
-
-  </div>
-</footer>
-  
   <script src="js/main.js"></script>
   <script src="js/network-bg.js"></script>
-
 </body>
 </html>
-
