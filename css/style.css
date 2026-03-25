@@ -1384,3 +1384,193 @@ MISC
     0 0 18px rgba(72,215,255,0.45),
     0 0 16px rgba(122,107,255,0.14);
 }
+/* =========================================
+FINAL QUICK FIX OVERRIDE
+Paste at END of style.css
+========================================= */
+
+/* --- tighter global shell --- */
+body {
+  overflow-x: hidden;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(3, 9, 17, 0.96), rgba(3, 9, 17, 0.82));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(90, 164, 255, 0.08);
+}
+
+/* --- MAKE HEADER SINGLE ROW --- */
+.header-shell {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 0;
+}
+
+.brand-row {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav-row {
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- center nav properly --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  flex-wrap: nowrap;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* --- remove empty black box above hero --- */
+.hero-video-strip,
+.panel-rectangle,
+.panel-video-rectangle {
+  display: none !important;
+}
+
+/* --- tighten hero top --- */
+.hero {
+  padding: 26px 0 42px;
+}
+
+.hero-grid {
+  gap: 18px;
+}
+
+.hero-copy,
+.hero-card,
+.hero-card-full {
+  padding: 30px;
+  border-radius: 30px;
+}
+
+/* --- logo broken image fallback protection --- */
+.brand img,
+.brand-logo {
+  max-width: 100%;
+}
+
+/* --- section starts cleaner under hero --- */
+main section:first-of-type {
+  padding-top: 42px;
+}
+
+/* --- footer and section spacing balance --- */
+main section {
+  padding: 90px 0;
+}
+
+/* --- responsive header --- */
+@media (max-width: 980px) {
+  .header-shell {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .nav-row {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .nav-links {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    height: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-shell {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .brand-row {
+    justify-content: flex-start;
+  }
+
+  .nav-row {
+    justify-content: flex-end;
+    grid-column: auto;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(5, 12, 24, 0.96);
+    border: 1px solid rgba(101, 171, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .brand-logo {
+    height: 42px;
+  }
+
+  .hero {
+    padding: 18px 0 34px;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .hero-card-full {
+    padding: 24px;
+    border-radius: 24px;
+  }
+}
