@@ -1,0 +1,39 @@
+:root {
+  --bg: #06111e;
+  --text: #eef7ff;
+  --muted: #96aec8;
+  --cyan: #48d7ff;
+  --blue: #2c6cff;
+  --violet: #7a6bff;
+  --max: 1280px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #030a14, #08162a);
+  color: var(--text);
+}
+
+.container {
+  width: min(calc(100% - 36px), var(--max));
+  margin: auto;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
