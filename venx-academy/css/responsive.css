@@ -1,0 +1,119 @@
+@media (max-width: 1080px) {
+  .hero-grid,
+  .hero-grid-programs,
+  .footer-grid,
+  .panel-grid-3,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1 {
+    max-width: 13ch;
+  }
+
+  .hero-visual-shell {
+    min-height: 420px;
+  }
+
+  .footer-grid {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 860px) {
+  .main-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #ffffff;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 18px;
+    height: 1.5px;
+    background: var(--text);
+  }
+
+  .hero-section,
+  .content-section,
+  .cta-section {
+    padding: 72px 0;
+  }
+
+  .flow-track {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-step:not(:last-child)::after {
+    display: none;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  .narrow-head h2,
+  .cta-panel h2 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+  }
+
+  .hero-visual-shell {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(var(--container), calc(100% - 28px));
+  }
+
+  .nav-wrap {
+    min-height: 74px;
+  }
+
+  .brand-mark {
+    font-size: 1.55rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .academy-panel,
+  .program-card,
+  .pricing-panel,
+  .faq-item,
+  .feature-block,
+  .cta-panel {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-visual-shell {
+    min-height: 300px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.88rem;
+  }
+}
