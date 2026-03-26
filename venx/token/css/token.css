@@ -544,3 +544,101 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* =========================
+   VENX FINAL MOBILE PATCH
+   (TOKEN + WHITEPAPER)
+========================= */
+
+@media (max-width: 600px) {
+
+  /* ===== TEXT BALANCE ===== */
+  p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    line-height: 1.05;
+  }
+
+  h2 {
+    line-height: 1.1;
+  }
+
+  /* ===== HERO ===== */
+  .token-text,
+  .wp-subtitle {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  /* ===== BUTTONS ===== */
+  .token-actions,
+  .wp-hero-actions,
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .token-actions .btn,
+  .wp-hero-actions .btn,
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  /* ===== CARDS ===== */
+  .token-card,
+  .wp-info-card,
+  .wp-road-step,
+  .token-point {
+    padding: 16px;
+  }
+
+  /* ===== STACK / LADDER ===== */
+  .wp-arch-step,
+  .wp-ladder-item {
+    padding: 18px;
+  }
+
+  .wp-arch-step strong,
+  .wp-ladder-item h3 {
+    font-size: 1rem;
+  }
+
+  /* ===== TOKEN HERO GRID ===== */
+  .token-hero-points {
+    grid-template-columns: 1fr;
+  }
+
+  /* ===== TOKENOMICS ===== */
+  .tokenomics-item {
+    padding: 16px;
+  }
+
+  .token-ring {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* ===== WHITEPAPER TABLE ===== */
+  .wp-table-row {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .wp-table-head {
+    display: none; /* mobile clean */
+  }
+
+  /* ===== NAVBAR IMPROVEMENT ===== */
+  .nav-menu {
+    gap: 6px;
+  }
+
+  .nav-link,
+  .nav-cta {
+    font-size: 0.85rem;
+    padding: 0 12px;
+  }
+
+}
