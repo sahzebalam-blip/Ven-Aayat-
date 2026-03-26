@@ -527,3 +527,208 @@ body::before {
     radial-gradient(circle at 50% 80%, rgba(214, 179, 106, 0.006), transparent 28%),
     linear-gradient(180deg, #01030a 0%, #02050f 55%, #010209 100%);
 }
+/* =========================
+   VENX MOBILE RESPONSIVE PATCH
+   ========================= */
+
+@media (max-width: 1100px) {
+  .cards-3,
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 780px) {
+  main {
+    padding-top: calc(var(--nav-height) + 16px);
+  }
+
+  .section {
+    padding: 34px 0 20px;
+  }
+
+  .section-heading {
+    margin-bottom: 22px;
+  }
+
+  .eyebrow {
+    gap: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+
+  .eyebrow::before {
+    width: 20px;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 10vw, 3.6rem);
+    line-height: 1.06;
+  }
+
+  h2 {
+    font-size: clamp(1.65rem, 7vw, 2.4rem);
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.58;
+  }
+
+  .container {
+    width: min(calc(100% - 20px), var(--container));
+  }
+
+  .ecosystem-card,
+  .feature-item,
+  .split-panel,
+  .cta-card {
+    padding: 18px;
+  }
+
+  .ecosystem-card {
+    min-height: unset;
+  }
+
+  .stack-lines {
+    gap: 12px;
+  }
+
+  .stack-line {
+    padding: 15px;
+  }
+
+  .stack-line span {
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+  }
+
+  .stack-line strong {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .cta-card {
+    gap: 18px;
+  }
+
+  .cta-card p {
+    max-width: 100%;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding: 0 18px;
+  }
+
+  .card-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+  }
+
+  .footer-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding-top: calc(var(--nav-height) + 12px);
+  }
+
+  .section {
+    padding: 30px 0 18px;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 11vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+  }
+
+  p {
+    font-size: 0.93rem;
+  }
+
+  .glass-card {
+    border-radius: 20px;
+  }
+
+  .ecosystem-card,
+  .feature-item,
+  .split-panel,
+  .cta-card {
+    padding: 16px;
+  }
+
+  .stack-line {
+    padding: 14px;
+  }
+
+  .btn {
+    min-height: 46px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: min(calc(100% - 16px), var(--container));
+  }
+
+  .section {
+    padding: 26px 0 16px;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 11vw, 2.6rem);
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 8vw, 1.8rem);
+  }
+
+  p {
+    font-size: 0.91rem;
+    line-height: 1.55;
+  }
+
+  .ecosystem-card,
+  .feature-item,
+  .split-panel,
+  .cta-card {
+    padding: 14px;
+  }
+
+  .stack-line strong {
+    font-size: 0.92rem;
+  }
+}
