@@ -1,26 +1,19 @@
-@media (max-width: 1080px) {
-  .hero-grid,
-  .hero-grid-programs,
-  .footer-grid,
-  .panel-grid-3,
-  .pricing-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 1180px) {
+  .pricing-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .panel-grid-2 {
+@media (max-width: 1080px) {
+  .panel-grid-3,
+  .panel-grid-2,
+  .pricing-grid,
+  .footer-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-copy h1 {
-    max-width: 13ch;
-  }
-
-  .hero-visual-shell {
-    min-height: 420px;
-  }
-
-  .footer-grid {
-    gap: 26px;
+    max-width: 12ch;
   }
 }
 
@@ -49,10 +42,30 @@
     background: var(--text);
   }
 
+  .main-nav.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 78px;
+    left: 14px;
+    right: 14px;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+  }
+
   .hero-section,
   .content-section,
   .cta-section {
-    padding: 72px 0;
+    padding: 76px 0;
+  }
+
+  .hero-section-home,
+  .hero-section-programs {
+    min-height: auto;
   }
 
   .flow-track {
@@ -64,16 +77,12 @@
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.4rem, 10vw, 4rem);
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .narrow-head h2,
   .cta-panel h2 {
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
-  }
-
-  .hero-visual-shell {
-    min-height: 360px;
+    font-size: clamp(1.9rem, 8vw, 2.9rem);
   }
 }
 
@@ -87,7 +96,7 @@
   }
 
   .brand-mark {
-    font-size: 1.55rem;
+    font-size: 1.58rem;
   }
 
   .hero-actions {
@@ -109,25 +118,16 @@
     padding-right: 18px;
   }
 
-  .hero-visual-shell {
-    min-height: 300px;
+  .cta-panel {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .price-main {
+    font-size: 2.45rem;
   }
 
   .footer-bottom p {
     font-size: 0.88rem;
   }
-}
-.main-nav.mobile-open {
-  display: flex;
-  position: absolute;
-  top: 78px;
-  left: 14px;
-  right: 14px;
-  flex-direction: column;
-  gap: 14px;
-  padding: 18px;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: var(--shadow-card);
 }
